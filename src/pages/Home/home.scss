@@ -1,0 +1,11 @@
+.home__wrapper {
+    // position: absolute;
+    padding-top: 120px;
+    padding-bottom: 40px;
+
+    .product__cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

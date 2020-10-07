@@ -1,0 +1,36 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul.breadcrumbs__container {
+    font-family: MetropolisRegular;
+    color: #9b9b9b;
+    font-size: 14px;
+    background-color: #fff;
+
+    li {
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    li {
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+    }
+
+    li {
+        a:hover {
+            color: #9b9b9b;
+            text-decoration: underline;
+        }
+    }
+}
+
+ul.breadcrumbs__container li+li::before {
+    padding: 8px;
+    color: black;
+    content: ">";
+}

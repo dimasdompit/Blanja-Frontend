@@ -1,0 +1,16 @@
+.banner__img {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        align-items: center;
+        border-radius: 8px;  
+        height: 220px;      
+    }
+}

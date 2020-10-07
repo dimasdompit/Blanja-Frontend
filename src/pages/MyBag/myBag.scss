@@ -1,0 +1,114 @@
+.mybag__container {
+    padding-top: 120px;
+    font-family: MetropolisRegular;
+
+    .empty__cart__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .empty__cart__img {
+            width: 60%;
+        }
+    }
+
+    .left__items__container {
+
+        .bag__items {
+            box-sizing: border-box;
+            color: #222;
+            padding: 22px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+    
+            .selected__items {
+                flex: 2;
+                font-size: 16px;
+
+                span {
+                    color: #9b9b9b;
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+            }
+
+            .button__delete__items {
+                border: none;
+                background-color: #fff;
+                color: #db3002;
+                font-weight: bold;
+            }
+
+            .button__delete__items:hover {
+                color: #fc5647;
+            }
+        }
+
+        .item__details {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px;
+            box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+            border-radius: 4px;
+            background-color: #fff;
+            margin-bottom: 10px;
+
+            .product__items {
+                display: flex;
+                flex: 2;
+                align-items: center;
+                flex-direction: row;
+
+                .item__images {
+                    box-sizing: border-box;
+                    height: 69px;
+                    width: 69px;
+                    border-radius: 8px; 
+                    object-fit: cover;
+                    margin-right: 10px;
+                }
+                
+                .item__description {
+                    flex: 1;
+                    // margin-right: 50px;
+                }
+            }
+
+            .item__qty {
+                display: flex;
+                flex: 1;
+                align-items: center;
+
+                .details__qty {
+                    font-family: MetropolisRegular;
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin: 0 17px;
+                }
+            }
+        }
+    }
+    
+    .shopping__summary {
+        padding: 22px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+        border-radius: 4px;
+
+        .total__price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.cart__icon__container {
+    font-family: MetropolisBold;
+    color: #fff;
+    // padding: 10px;
+    position: relative;
+    // display: inline-block;
+    
+    .cart__notif {
+        position: absolute;
+        display: flex;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        background-color: #db3022;
+        text-align: center;
+        padding: 10px;
+        top: -.6rem;
+        right: -.7rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 100%;
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,55 @@
+.product__details__container {
+    padding-top: 120px;
+    padding-bottom: 30px;
+
+    .image__container {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .top__content {
+        margin-top: 25px;
+
+        .right__content__bottom {
+            width: 345px;
+    
+            .size__content {
+                display: flex;
+
+                .details__pcs {
+                    display: flex;
+                    align-items: center;
+
+                    .details__qty {
+                        font-family: MetropolisRegular;
+                        font-weight: bold;
+                        font-size: 16px;
+                        margin: 0 17px;
+                    }
+                }
+
+            }
+    
+            .btn__content {
+                display: flex;
+            }
+        }
+    }
+
+    .center__content {
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    .bottom__content {
+        margin-top: 50px;
+
+        .product__suggestion {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+}

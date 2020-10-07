@@ -1,0 +1,186 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "product_name": "Adidas Stargon 1.0 - Blue",
+            "store": "Adidas",
+            "images": [
+                "/images/products/adidas1.jpg",
+                "/images/products/adidas1.jpg",
+                "/images/products/adidas1.jpg",
+                "/images/products/adidas1.jpg"
+            ],
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, facere aut aspernatur natus praesentium debitis nostrum molestias vel, repellendus veritatis voluptas porro aperiam eos! Natus cupiditate minus explicabo, quas autem numquam tempore officia, eos commodi nostrum consequuntur incidunt! Tempore cumque illo rerum iste culpa officia veniam, tempora porro architecto harum facilis amet reiciendis quod numquam vero molestias consequuntur sunt deserunt distinctio voluptate laudantium. Veniam cumque ut ab odio sequi a mollitia repellat eum tenetur ipsam, totam id aliquid voluptates sunt reiciendis non iure quo repellendus. Ut, illo! Animi repellendus quidem consectetur eaque recusandae atque architecto, velit aut provident quibusdam illum?",
+            "stock": 15,
+            "price": 299,
+            "condition_name": "New",
+            "category": "Shoes",
+            "size": "All Size",
+            "color": "Lightblue",
+            "created_at": "2020-09-26T19:36:22.000Z",
+            "updated_at": "2020-09-26T19:36:22.000Z"
+        },
+        {
+            "id": 2,
+            "product_name": "Charles & Keith Handbag Tuck-In (Pink)",
+            "store": "Charles & Keith Official",
+            "images": [
+                "/images/products/ck1.jpg",
+                "/images/products/ck1.jpg",
+                "/images/products/ck1.jpg",
+                "/images/products/ck1.jpg"
+            ],
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nihil maiores dignissimos aspernatur, ullam quas harum, porro earum placeat doloribus nesciunt architecto enim dicta et. Ex repellat voluptas quaerat totam maiores enim cupiditate praesentium illum! Vitae maiores impedit velit a deleniti illo qui doloremque excepturi? Cupiditate, voluptate. Suscipit ratione dignissimos possimus doloremque pariatur ipsum id, quia, nemo autem ducimus facere, consequatur ullam quos minus maiores dolore. Ipsa fugit velit reprehenderit, perferendis repudiandae doloribus facere laudantium in sed sequi blanditiis nulla odit iusto corrupti at magnam ipsam corporis nesciunt eos placeat minima quos veritatis deleniti? Eius sunt necessitatibus asperiores adipisci quod!",
+            "stock": 40,
+            "price": 87,
+            "condition_name": "New",
+            "category": "Handbag",
+            "size": "All Size",
+            "color": "Pink",
+            "created_at": "2020-09-26T19:36:22.000Z",
+            "updated_at": "2020-09-26T19:36:22.000Z"
+        },
+        {
+            "id": 3,
+            "product_name": "Lenshin Formal Suit Elegant (Black)",
+            "store": "Lenshin Store",
+            "images": [
+                "/images/products/lenshin4.jpg",
+                "/images/products/lenshin4.jpg",
+                "/images/products/lenshin4.jpg",
+                "/images/products/lenshin4.jpg"
+            ],
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quasi soluta praesentium placeat deserunt aspernatur nulla quis. Et explicabo ullam sit neque voluptates. Voluptate minima eum rerum laborum provident possimus nisi tempora, quas iste velit quo nemo molestias tempore placeat ratione consequuntur omnis impedit, vero unde. Reprehenderit necessitatibus, eos inventore quidem cumque aliquid voluptatem, molestias reiciendis assumenda sunt consequatur, veritatis iure non dolorem repudiandae. Esse necessitatibus corporis illo. Modi debitis quisquam repellat. Dicta aliquam praesentium veritatis nisi maiores beatae. In unde voluptatem totam, dicta animi laborum harum? Officia assumenda tenetur culpa sequi alias exercitationem repudiandae, odit nostrum necessitatibus hic aliquid!",
+            "stock": 32,
+            "price": 175,
+            "condition_name": "New",
+            "category": "Formal Suit",
+            "size": "L",
+            "color": "Black",
+            "created_at": "2020-09-26T19:36:22.000Z",
+            "updated_at": "2020-09-26T19:36:22.000Z"
+        },
+        {
+            "id": 4,
+            "product_name": "New York Yankees Cap Red",
+            "store": "NY Yankees",
+            "images": [
+                "/images/products/ny4.jpg",
+                "/images/products/ny4.jpg",
+                "/images/products/ny4.jpg",
+                "/images/products/ny4.jpg"
+            ],
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta illum accusamus odio culpa cumque molestias exercitationem nulla enim vero facere eum ducimus laboriosam quae, distinctio voluptate in facilis saepe consequuntur vitae et. Debitis temporibus voluptatibus quaerat porro ex amet doloribus accusantium rerum quibusdam, velit dolorem, explicabo et itaque culpa! In labore exercitationem dolore dolorum, voluptatibus iste accusamus repellat corporis alias qui iusto vitae molestiae ipsa est debitis unde suscipit neque eligendi cumque placeat veniam eius odit similique eveniet. Cumque est dignissimos veritatis ut vero laborum iusto! Animi consequuntur quasi soluta? A quas, sunt beatae eum ex reprehenderit! Ducimus, architecto iure!",
+            "stock": 11,
+            "price": 45,
+            "condition_name": "Secondhand",
+            "category": "Cap",
+            "size": "L",
+            "color": "Red",
+            "created_at": "2020-09-26T19:36:22.000Z",
+            "updated_at": "2020-09-26T19:36:22.000Z"
+        },
+        {
+            "id": 5,
+            "product_name": "Zara T-Shirt Cotton Black",
+            "store": "Zara Official Store",
+            "images": [
+                "/images/products/zara4.jpg",
+                "/images/products/zara4.jpg",
+                "/images/products/zara4.jpg",
+                "/images/products/zara4.jpg"
+            ],
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet delectus cumque eveniet eligendi minima quidem, alias voluptates molestias, aspernatur, hic quaerat sed consectetur. Repellat reprehenderit necessitatibus quasi iusto debitis fuga architecto laudantium maiores. Non nihil facere atque natus earum cum officiis consectetur eius ad, beatae repudiandae maiores odio dicta iure nemo commodi fugiat at reiciendis sit tempora ipsa corrupti? Cupiditate iusto ullam rem molestias in. Ipsum suscipit quis consectetur delectus reprehenderit alias consequatur cumque facilis voluptatibus sed veniam ut quos, facere deleniti ipsam laborum architecto temporibus ullam aperiam nulla laudantium praesentium quod dolore. Animi doloremque illo a veritatis et aliquam.",
+            "stock": 60,
+            "price": 18,
+            "condition_name": "New",
+            "category": "T-Shirt",
+            "size": "L",
+            "color": "Black",
+            "created_at": "2020-09-26T19:36:22.000Z",
+            "updated_at": "2020-09-26T19:36:22.000Z"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "category": "T-Shirt",
+            "image": "/images/categories/t-shirt.png"
+        },
+        {
+            "id": 2,
+            "category": "Shorts",
+            "image": "/images/categories/shorts.png"
+        },
+        {
+            "id": 3,
+            "category": "Jacket",
+            "image": "/images/categories/jacket.png"
+        },
+        {
+            "id": 4,
+            "category": "Pants",
+            "image": "/images/categories/pants.png"
+        },
+        {
+            "id": 5,
+            "category": "Shoes",
+            "image": "/images/categories/shoes.png"
+        },
+        {
+            "id": 6,
+            "category": "High Heels",
+            "image": "/images/categories/high-heels.png"
+        },
+        {
+            "id": 7,
+            "category": "Wirstwatch",
+            "image": "/images/categories/wirstwatch.png"
+        },
+        {
+            "id": 8,
+            "category": "Handbag",
+            "image": "/images/categories/handbag.png"
+        },
+        {
+            "id": 9,
+            "category": "Bagback",
+            "image": "/images/categories/bagback.png"
+        },
+        {
+            "id": 10,
+            "category": "Socks",
+            "image": "/images/categories/socks.png"
+        },
+        {
+            "id": 11,
+            "category": "Glasses",
+            "image": "/images/categories/glasses.png"
+        },
+        {
+            "id": 12,
+            "category": "Cap",
+            "image": "/images/categories/cap.png"
+        },
+        {
+            "id": 13,
+            "category": "Tie",
+            "image": "/images/categories/tie.png"
+        },
+        {
+            "id": 14,
+            "category": "Dress",
+            "image": "/images/categories/dress.png"
+        },
+        {
+            "id": 15,
+            "category": "Formal Suit",
+            "image": "/images/categories/formal-suit.png"
+        },
+        {
+            "id": 16,
+            "category": "Accessories",
+            "image": "/images/categories/accessories.png"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+.btn__primary, .btn__outline, .btn__primary-round, .btn__outline-round {
+    font-family: MetropolisRegular;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    padding: 8px 0;
+    transition: .3s;
+}
+
+
+.btn__primary, .btn__primary-round {
+    border-radius: 4px;
+    background-color: #db3022;
+    color: #fff;
+}
+
+.btn__primary-round, .btn__outline-round {
+    border-radius: 25px;
+}
+
+.btn__primary:hover, .btn__primary-round:hover {
+    background-color: #fc5647;
+}
+
+.btn__primary:disabled, .btn__primary-round:disabled,
+.btn__primary[disabled], .btn__primary-round[disabled]{
+  background-color: #ff7f73;
+  color: #fff;
+}
+
+.btn__outline, .btn__outline-round {
+    border: 1px solid #9B9B9B;
+    background-color: #fff;
+    color: #9B9B9B;
+}
+
+.btn__outline:hover, .btn__outline-round:hover {
+    border: none;
+    background-color: #db3022;
+    color: #fff;
+}
+
+.btn__outline:disabled, .btn__outline-round:disabled,
+.btn__outline[disabled], .btn__outline-round[disabled]{
+    border: 1px solid #cecece;
+  background-color: #fff;
+  color: #cecece;
+}
