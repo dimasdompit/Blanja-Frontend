@@ -11,7 +11,8 @@ class ProductDetails extends Component {
             product: data.products[1],
             products: data.products,
             qty: 1,
-            cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : []
+            cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
+            items: localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : []
         }
     }
 
@@ -64,7 +65,35 @@ class ProductDetails extends Component {
         localStorage.setItem("cartItems", JSON.stringify(cartItems))
     }
 
+    buyNow = () => {
+        const items = this.state.items.slice();
+        const product = this.getItem(parseInt(this.props.match.params.id))
+        const price = product.price;
+        product.total = price
+        let alreadyAdd = false
+        items.forEach((item, index) => {
+            if (item.id !== product.id) {
+                alreadyAdd = true;
+                items.splice(0, items.length)
+                items.push({ ...product, qty: this.state.qty, isChecked: false })
+            }
+
+            if (item.id === product.id) {
+                alreadyAdd = true;
+                items.splice(0, items.length)
+                items.push({ ...product, qty: this.state.qty, isChecked: false })
+            }
+        })
+        if (!alreadyAdd) {
+            items.push({ ...product, qty: this.state.qty, isChecked: false })
+        }
+        this.setState({ items })
+        localStorage.setItem("items", JSON.stringify(items))
+        this.props.history.push('/checkout')
+    }
+
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.getProductDetails()
     }
 
@@ -107,7 +136,7 @@ class ProductDetails extends Component {
                                     <Button variant='outline-round' title='Add bag' padding={15} onClick={this.addToCart} />
                                 </div>
                                 <Gap height={30} />
-                                <Button variant='primary-round' title='Buy Now' padding={15} onClick={() => alert('Buy Button')} />
+                                <Button variant='primary-round' title='Buy Now' padding={15} onClick={this.buyNow} />
                             </div>
                         </Col>
                     </Row>

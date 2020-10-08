@@ -6,6 +6,7 @@ import Home from '../Home'
 import Category from '../Category'
 import ProductDetails from '../ProductDetails'
 import MyBag from '../MyBag'
+import Checkout from '../Checkout'
 import './mainApp.scss'
 
 const MainApp = (props) => {
@@ -19,9 +20,7 @@ const MainApp = (props) => {
                             <Route path='/profile/:id'>
                                 <p>Ini Profile</p>
                             </Route>
-                            <Route path='/checkout'>
-                                <p>Ini Checkout</p>
-                            </Route>
+                            <Route path='/checkout' component={Checkout} />
                             <Route path='/cart' component={MyBag} />
                             <Route path='/category/:id' component={Category} />
                             <Route path='/product-details/:id' component={ProductDetails} />

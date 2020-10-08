@@ -11,6 +11,7 @@ class MyBag extends Component {
         this.state = {
             products: data.products,
             cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
+            items: localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [],
             itemSelected: [],
         }
     }
@@ -27,6 +28,8 @@ class MyBag extends Component {
         this.setState(() => {
             return { cartItems: [...cartItems] }
         })
+        localStorage.setItem("cartItems", JSON.stringify(this.state.cartItems))
+        localStorage.setItem("items", JSON.stringify(this.state.cartItems))
     }
 
     /* ======== HANDLE MINUS QUANTITY BY PRODUCT ID ======== */
@@ -41,6 +44,8 @@ class MyBag extends Component {
         this.setState(() => {
             return { cartItems: [...cartItems] }
         })
+        localStorage.setItem("cartItems", JSON.stringify(this.state.cartItems))
+        localStorage.setItem("items", JSON.stringify(this.state.cartItems))
     }
 
     /* ======== HANDLE CHECK ALL CHECKBOX ========= */
@@ -116,6 +121,16 @@ class MyBag extends Component {
         })
         this.setState({ cartItems: cart })
         localStorage.setItem("cartItems", JSON.stringify(cart))
+        localStorage.setItem("items", JSON.stringify(cart))
+    }
+
+    /* ======== HANDLE BUY CHECKOUT ======== */
+    buyCheckout = () => {
+        // const items = this.state.items;
+        const cartItems = this.state.cartItems.slice();
+
+        JSON.stringify("items", cartItems)
+        this.props.history.push('/checkout')
     }
 
 
@@ -174,12 +189,11 @@ class MyBag extends Component {
                                         <Headline type='h3' title={formatCurrency(cartItems.reduce((acc, curr) => acc + curr.price * curr.qty, 0))} />
                                     </div>
                                     <Gap height={30} />
-                                    <Button variant='primary-round' title='Buy' onClick={() => this.props.history.push(`/checkout`)} />
+                                    <Button variant='primary-round' title='Buy' onClick={this.buyCheckout} />
                                 </div>
                             </Col>
                         </Row>
                     )}
-
             </div>
         )
     }

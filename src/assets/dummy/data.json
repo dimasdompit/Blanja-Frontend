@@ -182,5 +182,31 @@
             "category": "Accessories",
             "image": "/images/categories/accessories.png"
         }
+    ],
+    "address": [
+        {
+            "id": 1,
+            "user_id": 8,
+            "type": "Office",
+            "name": "Dimas Mokodompit",
+            "address": "Jalan Jendral Sudirman",
+            "telp": "0211234567",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipcode": "54321",
+            "country": "Indonesia"
+        },
+        {
+            "id": 2,
+            "user_id": 8,
+            "type": "Home",
+            "name": "Dimas Mokodompit",
+            "address": "Jalan Taman Melati 2",
+            "telp": "082212345678",
+            "city": "Depok City",
+            "province": "West Java",
+            "zipcode": "54321",
+            "country": "Indonesia"
+        }
     ]
 }
