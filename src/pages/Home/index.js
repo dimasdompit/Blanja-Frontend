@@ -1,15 +1,35 @@
 import React, { Component } from 'react'
-import { data } from '../../assets'
 import { Banner, Cards, Carousel, Gap, Headline, Subtext } from '../../components'
+import axios from 'axios'
 import './home.scss'
 
 class Home extends Component {
     constructor(props) {
         super()
         this.state = {
-            products: data.products
+            products: []
         }
     }
+
+    /** ======================================= GET ALL PRODUCTS FROM API ======================================== */
+    getAllProductsFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/products`
+        }).then(response => {
+            console.log(response.data)
+            this.setState({
+                products: response.data
+            })
+        }).catch(error => {
+            console.log(error.message)
+        })
+    }
+
+    componentDidMount() {
+        this.getAllProductsFromAPI();
+    }
+
     render() {
         return (
             <div className='home__wrapper'>

@@ -1,19 +1,38 @@
 import React, { Component } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { data, EmptyCartBg } from '../../assets'
-import { Button, Gap, Headline, Subtext } from '../../components'
+import { Button, ChooseAddress, Gap, Headline, Subtext } from '../../components'
 import { formatCurrency } from '../../utils'
+import axios from 'axios';
 import './checkout.scss'
+import Payment from '../../components/organisms/Payment'
 
 class Checkout extends Component {
     constructor(props) {
         super();
         this.state = {
+            modalAddress: false,
+            modalPayment: false,
             total: 0,
             address: data.address[0],
+            myAddress: [],
             items: localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [],
-            delivery: 5
+            delivery: 5,
         }
+    }
+
+    getMyAddressFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/address`
+        }).then(response => {
+            console.log(response);
+            this.setState({ myAddress: response.data })
+        }).catch(error => console.log(error))
+    }
+
+    componentDidMount() {
+        this.getMyAddressFromAPI()
     }
 
     render() {
@@ -37,7 +56,8 @@ class Checkout extends Component {
                                     <Gap height={10} />
                                     <Subtext size={14} title={`${address.address}, ${address.city}, ${address.province}, ${address.zipcode} - ${address.country}`} />
                                     <Gap height={20} />
-                                    <Button variant='outline-round' style={{ width: 210 }} title='Choose another address' onClick={() => alert('Modal Address')} />
+                                    <Button variant='outline-round' style={{ width: 210 }} title='Choose another address' onClick={() => this.setState({ modalAddress: true })} />
+                                    <ChooseAddress data={this.state.myAddress} show={this.state.modalAddress} onHide={() => this.setState({ modalAddress: false })} />
                                 </div>
 
                                 {items.map((item) => {
@@ -80,7 +100,8 @@ class Checkout extends Component {
                                         <Headline type='h3' style={{ color: '#db3022' }} title={formatCurrency(items.reduce((acc, curr) => acc + (curr.price * curr.qty), delivery))} />
                                     </div>
                                     <Gap height={30} />
-                                    <Button variant='primary-round' title='Select payment' onClick={() => alert('OK')} />
+                                    <Button variant='primary-round' title='Select payment' onClick={() => this.setState({ modalPayment: true })} />
+                                    <Payment show={this.state.modalPayment} onHide={() => this.setState({ modalPayment: false })} />
                                 </div>
                             </Col>
                         </Row>

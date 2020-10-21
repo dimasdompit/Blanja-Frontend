@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Slider from 'react-slick'
-import { Banner1, Banner2, Banner3, Banner4 } from '../../../assets'
+import axios from 'axios'
 import './banner.scss'
 
 
 const Banner = () => {
 
-    const [images, setImages] = useState([{ id: 1, image: Banner1 }, { id: 2, image: Banner2 }, { id: 3, image: Banner3 }, { id: 4, image: Banner4 }])
+    /* =============================== INITIAL STATES =============================== */
+    const [images, setImages] = useState([])
 
+    /* =============================== REACT-SLICK SLIDER SETTINGS =============================== */
     const settings = {
         className: "center",
         dots: true,
@@ -18,6 +20,22 @@ const Banner = () => {
         slidesToShow: 2,
         speed: 500
     }
+
+    /* =============================== GET ALL BANNER FROM API =============================== */
+    const getAllBannerFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/banner`
+        }).then(response => {
+            setImages(response.data)
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    useEffect(() => {
+        getAllBannerFromAPI()
+    }, [])
 
     return (
         <div>

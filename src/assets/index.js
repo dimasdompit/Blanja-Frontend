@@ -7,6 +7,11 @@ import Banner2 from './images/banner-2.jpg';
 import Banner3 from './images/banner-3.jpg';
 import Banner4 from './images/banner-4.jpg';
 
+// PAYMENTS IMAGES
+import GopayLogo from './images/payments-img/gopay-logo.png'
+import MastercardLogo from './images/payments-img/mastercard-logo.png'
+import PosIndonesiaLogo from './images/payments-img/pos-indonesia-logo.png'
+
 // CATEGORIES IMAGES
 import TshirtImg from './images/categories-img/t-shirt.png';
 import ShortsImg from './images/categories-img/shorts.png';
@@ -38,4 +43,4 @@ import EmptyCartBg from './illustrations/empty-cart-illustration.png';
 // DUMMY DATA JSON
 import data from './dummy/data.json'
 
-export { BlanjaLogo, Banner1, Banner2, Banner3, Banner4, TshirtImg, ShortsImg, JacketImg, PantsImg, ShoesImg, HighHeelsImg, WirstwatchImg, HandbagImg, BagbackImg, SocksImg, GlassesImg, CapImg, TieImg, DressImg, FormalSuitImg, AccessoriesImg, AdidasImg, CkImg, LenshinImg, NyImg, ZaraImg, EmptyCartBg, data };
+export { BlanjaLogo, Banner1, Banner2, Banner3, Banner4, TshirtImg, ShortsImg, JacketImg, PantsImg, ShoesImg, HighHeelsImg, WirstwatchImg, HandbagImg, BagbackImg, SocksImg, GlassesImg, CapImg, TieImg, DressImg, FormalSuitImg, AccessoriesImg, AdidasImg, CkImg, LenshinImg, NyImg, ZaraImg, EmptyCartBg, GopayLogo, MastercardLogo, PosIndonesiaLogo, data };

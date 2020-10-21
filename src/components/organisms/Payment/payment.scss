@@ -1,0 +1,15 @@
+.container__modal {
+    padding: 0 14px;
+
+    .payments__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 35px 0;
+
+        img {
+            width: 100%;
+            width: 82px;
+        }
+    }
+}

@@ -1,16 +1,44 @@
 import React, { Component } from 'react'
 import { Breadcrumbs, Cards, Gap, Headline } from '../../components'
-import { data } from '../../assets'
+import axios from 'axios'
 import './category.scss'
 
 class Category extends Component {
     constructor(props) {
         super()
         this.state = {
-            products: data.products,
-            categories: data.categories[0]
+            products: [],
+            categories: {}
         }
     }
+
+    /* ============================= GET CATEGORY DETAILS FROM API ============================= */
+    getCategoryDetailsFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/categories/${this.props.match.params.id}`
+        }).then(response => {
+            this.setState({ categories: response.data })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    /* ============================= GET PRODUCTS BY CATEGORY ============================= */
+    getProductByCategories = (category) => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/products`
+        }).then(response => {
+            this.setState({ products: response.data })
+        }).catch(error => console.log(error))
+    }
+
+    componentDidMount() {
+        this.getCategoryDetailsFromAPI()
+        this.getProductByCategories()
+    }
+
     render() {
         return (
             <div className='category__container'>
@@ -19,7 +47,7 @@ class Category extends Component {
                 <Headline type='h1' title={this.state.categories.category} />
                 <Gap height={25} />
 
-                <div class="product__cards">
+                <div className="product__cards">
                     {this.state.products.map((product) => {
                         return (
                             <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
