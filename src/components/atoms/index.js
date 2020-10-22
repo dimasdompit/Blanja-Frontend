@@ -7,5 +7,7 @@ import Subtext from './Subtext'
 import Color from './Color'
 import CircleButton from './CircleButton'
 import Checkbox from './Checkbox'
+import RadioButton from './RadioButton'
+import Input from './Input'
 
-export { Search, Gap, Icon, Button, Headline, Subtext, Color, CircleButton, Checkbox }
+export { Search, Gap, Icon, Button, Headline, Subtext, Color, CircleButton, Checkbox, RadioButton, Input }

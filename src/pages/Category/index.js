@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Breadcrumbs, Cards, Gap, Headline } from '../../components'
+import { Breadcrumbs, CardLoader, Cards, Gap, Headline } from '../../components'
 import axios from 'axios'
 import './category.scss'
 
@@ -8,7 +8,8 @@ class Category extends Component {
         super()
         this.state = {
             products: [],
-            categories: {}
+            categories: {},
+            isLoading: true,
         }
     }
 
@@ -18,7 +19,7 @@ class Category extends Component {
             method: 'GET',
             url: `${process.env.REACT_APP_API_URL}/categories/${this.props.match.params.id}`
         }).then(response => {
-            this.setState({ categories: response.data })
+            this.setState({ categories: response.data, isLoading: false })
         }).catch(error => {
             console.log(error)
         })
@@ -30,7 +31,7 @@ class Category extends Component {
             method: 'GET',
             url: `${process.env.REACT_APP_API_URL}/products`
         }).then(response => {
-            this.setState({ products: response.data })
+            this.setState({ products: response.data, isLoading: false })
         }).catch(error => console.log(error))
     }
 
@@ -42,18 +43,24 @@ class Category extends Component {
     render() {
         return (
             <div className='category__container'>
-                <Breadcrumbs id={this.state.categories.id} category={this.state.categories.category} />
-                <Gap height={23} />
-                <Headline type='h1' title={this.state.categories.category} />
-                <Gap height={25} />
+                {this.state.isLoading
+                    ? <CardLoader />
+                    : (
+                        <>
+                            <Breadcrumbs id={this.state.categories.id} category={this.state.categories.category} />
+                            <Gap height={23} />
+                            <Headline type='h1' title={this.state.categories.category} />
+                            <Gap height={25} />
 
-                <div className="product__cards">
-                    {this.state.products.map((product) => {
-                        return (
-                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
-                        )
-                    })}
-                </div>
+                            <div className="product__cards">
+                                {this.state.products.map((product) => {
+                                    return (
+                                        <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                    )
+                                })}
+                            </div>
+                        </>
+                    )}
             </div>
         )
     }

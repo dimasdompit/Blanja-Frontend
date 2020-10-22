@@ -1,0 +1,49 @@
+.login__wrapper {
+    padding: 35px 0;
+    display: flex;
+    height: 100vh;
+    margin: auto;
+    // align-items: center;
+    width: 50%;
+    margin: auto;
+
+    .content__wrapper {
+        flex: 1;
+
+        .login__logo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .forgot__password {
+            display: flex;
+            justify-content: flex-end;
+            font-family: MetropolisRegular;
+            font-size: 14px;
+            color: #DB3022;
+            transition: .3s;
+        }
+
+        .forgot__password:hover {
+            color: #fc5647;
+            cursor: pointer;
+        }
+
+        .login__redirect {
+            text-align: center;
+            font-family: MetropolisRegular;
+            font-size: 14px;
+
+            .go__to {
+                color: #DB3022;
+                transition: .3s;
+            }
+
+            .go__to:hover {
+                text-decoration: underline;
+                color: #fc5647;
+                cursor: pointer;
+            }
+        }
+    }
+}

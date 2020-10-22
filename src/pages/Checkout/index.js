@@ -101,7 +101,7 @@ class Checkout extends Component {
                                     </div>
                                     <Gap height={30} />
                                     <Button variant='primary-round' title='Select payment' onClick={() => this.setState({ modalPayment: true })} />
-                                    <Payment show={this.state.modalPayment} onHide={() => this.setState({ modalPayment: false })} />
+                                    <Payment show={this.state.modalPayment} onHide={() => this.setState({ modalPayment: false })} items={items} delivery={delivery} handleOrder={() => alert('Buy')} />
                                 </div>
                             </Col>
                         </Row>

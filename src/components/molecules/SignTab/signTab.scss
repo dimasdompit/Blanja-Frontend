@@ -1,0 +1,17 @@
+.tab__list__item {
+  display: inline-block;
+  font-family: MetropolisRegular;
+  font-size: 14px;
+  color: #9b9b9b;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 14px 42px;
+  border: 1px solid #9b9b9b;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab__list__active {
+    color: #fff;
+    background-color: #db3022;
+}
