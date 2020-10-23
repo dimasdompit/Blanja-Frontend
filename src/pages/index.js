@@ -6,5 +6,8 @@ import Category from './Category'
 import ProductDetails from './ProductDetails'
 import MyBag from './MyBag'
 import Checkout from './Checkout'
+import ForgotPassword from './ForgotPassword'
+import VerificationOTP from './VerificationOTP'
+import ResetPassword from './ResetPassword'
 
-export { Home, Login, Register, MainApp, Category, ProductDetails, MyBag, Checkout }
+export { Home, Login, Register, MainApp, Category, ProductDetails, MyBag, Checkout, ForgotPassword, VerificationOTP, ResetPassword }

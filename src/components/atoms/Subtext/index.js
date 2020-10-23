@@ -1,9 +1,9 @@
 import React from 'react'
 import './subtext.scss'
 
-const Subtext = ({ title, size, color, ...props }) => {
+const Subtext = ({ title, size, textAlign, color, ...props }) => {
     return (
-        <p className='subtext' {...props} style={{ fontSize: size, color: color }}>{title}</p>
+        <p className='subtext' {...props} style={{ fontSize: size, color: color, textAlign: textAlign }}>{title}</p>
     )
 }
 

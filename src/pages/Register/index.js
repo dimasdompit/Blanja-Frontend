@@ -17,6 +17,10 @@ class Register extends Component {
 
     }
 
+    componentDidMount() {
+        document.title = 'Blanja App - login or sign up'
+    }
+
     render() {
         return (
             <Container>

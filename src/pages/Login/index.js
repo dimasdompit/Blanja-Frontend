@@ -17,6 +17,10 @@ class Login extends Component {
 
     }
 
+    componentDidMount() {
+        document.title = 'Blanja App - login or sign up'
+    }
+
     render() {
         return (
             <Container>
@@ -55,7 +59,7 @@ class Login extends Component {
 
                         {/* ==================== FORGOT PASSWORD COMP ==================== */}
                         <Gap height={26} />
-                        <p className='forgot__password' onClick={() => alert('forgot password')}>Forgot Password?</p>
+                        <p className='forgot__password' onClick={() => this.props.history.push('/forgot-password')}>Forgot Password?</p>
                         <Gap height={26} />
 
                         {/* ==================== BUTTON SIGN COMP ==================== */}
