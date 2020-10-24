@@ -1,0 +1,28 @@
+.accordion__label__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    .accordion__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        width: 32px;
+        border-radius: 100%;
+        margin-right: 14px;
+    }
+
+    .accordion__icon.icon__store {
+        background-color: #456bf3;
+    }
+
+    .accordion__icon.icon__product {
+        background-color: #F36F45;
+    }
+
+    .accordion__icon.icon__order {
+        background-color: #F3456F;
+    }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Banner, CardLoader, Cards, Carousel, Gap, Headline, Subtext } from '../../components'
 import axios from 'axios'
 import './home.scss'
+import { Container } from 'react-bootstrap'
 
 class Home extends Component {
     constructor(props) {
@@ -35,45 +36,49 @@ class Home extends Component {
     render() {
         return (
             <div className='home__wrapper'>
-                {this.state.isLoading
-                    ? <CardLoader />
-                    : (
-                        <>
-                            <Banner />
-                            <Gap height={50} />
-                            <Headline type='h1' title='Category' />
-                            <Subtext title='What are you currently looking for' />
-                            <Gap height={28} />
-                            <Carousel />
-                            <Gap height={35} />
+                <Container>
+                    {this.state.isLoading
+                        ? <CardLoader />
+                        : (
+                            <>
+                                {/* ======= BANNER SECTION ======= */}
+                                <Banner />
+                                <Gap height={50} />
 
-                            {/* ======= NEW PRODUCTS ======= */}
-                            <Headline type='h1' title='New' />
-                            <Subtext title={`You've never seen it before!`} />
-                            <Gap height={25} />
-                            <div className="product__cards">
-                                {this.state.products.map((product) => {
-                                    return (
-                                        <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
-                                    )
-                                })}
-                            </div>
-                            <Gap height={25} />
+                                {/* ======= CATEGORY SECTION ======= */}
+                                <Headline type='h1' title='Category' />
+                                <Subtext title='What are you currently looking for' />
+                                <Gap height={28} />
+                                <Carousel />
+                                <Gap height={35} />
 
-                            {/* ======= POPULAR PRODUCTS ======= */}
-                            <Headline type='h1' title='Popular' />
-                            <Subtext title='Find clothes that are trending recently' />
-                            <Gap height={25} />
-                            <div className="product__cards">
-                                {this.state.products.map((product) => {
-                                    return (
-                                        <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
-                                    )
-                                })}
-                            </div>
-                        </>
-                    )}
+                                {/* ======= NEW PRODUCTS SECTION ======= */}
+                                <Headline type='h1' title='New' />
+                                <Subtext title={`You've never seen it before!`} />
+                                <Gap height={25} />
+                                <div className="product__cards">
+                                    {this.state.products.map((product) => {
+                                        return (
+                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                        )
+                                    })}
+                                </div>
+                                <Gap height={25} />
 
+                                {/* ======= POPULAR PRODUCTS SECTION ======= */}
+                                <Headline type='h1' title='Popular' />
+                                <Subtext title='Find clothes that are trending recently' />
+                                <Gap height={25} />
+                                <div className="product__cards">
+                                    {this.state.products.map((product) => {
+                                        return (
+                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                        )
+                                    })}
+                                </div>
+                            </>
+                        )}
+                </Container>
             </div>
         )
     }

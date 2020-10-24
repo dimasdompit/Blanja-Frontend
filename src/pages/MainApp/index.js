@@ -8,26 +8,25 @@ import ProductDetails from '../ProductDetails'
 import MyBag from '../MyBag'
 import Checkout from '../Checkout'
 import './mainApp.scss'
+import Profile from '../Profile'
 
-const MainApp = (props) => {
+const MainApp = () => {
     return (
         <div className='main-app-wrapper'>
             <NavBar />
             <div className="content-wrapper">
-                <Container>
-                    <Router>
-                        <Switch>
-                            <Route path='/profile/:id'>
-                                <p>Ini Profile</p>
-                            </Route>
-                            <Route path='/checkout' component={Checkout} />
-                            <Route path='/cart' component={MyBag} />
-                            <Route path='/category/:id' component={Category} />
-                            <Route path='/product-details/:id' component={ProductDetails} />
-                            <Route path='/' component={Home} />
-                        </Switch>
-                    </Router>
-                </Container>
+                {/* <Container> */}
+                <Router>
+                    <Switch>
+                        <Route path='/profile' component={Profile} />
+                        <Route path='/checkout' component={Checkout} />
+                        <Route path='/cart' component={MyBag} />
+                        <Route path='/category/:id' component={Category} />
+                        <Route path='/product-details/:id' component={ProductDetails} />
+                        <Route path='/' component={Home} />
+                    </Switch>
+                </Router>
+                {/* </Container> */}
             </div>
         </div>
     )

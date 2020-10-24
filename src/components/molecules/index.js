@@ -7,5 +7,6 @@ import Ratings from './Ratings'
 import CartIcon from './CartIcon'
 import CardLoader from './CardLoader'
 import SignTab from './SignTab'
+import PopoverNotification from './PopoverNotification'
 
-export { Filter, Cart, Cards, Breadcrumbs, ProductDetailsImage, Ratings, CartIcon, CardLoader, SignTab }
+export { Filter, Cart, Cards, Breadcrumbs, ProductDetailsImage, Ratings, CartIcon, CardLoader, SignTab, PopoverNotification }

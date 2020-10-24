@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { data, EmptyCartBg } from '../../assets';
 import { Button, Checkbox, CircleButton, Gap, Headline, Subtext } from '../../components'
 import { formatCurrency } from '../../utils';
@@ -138,62 +138,82 @@ class MyBag extends Component {
         const { itemSelected, cartItems } = this.state
         return (
             <div className='mybag__container'>
-                <Headline type='h1' title='My Bag' />
-                <Gap height={30} />
-                {cartItems.length === 0 ? (
-                    <div className='empty__cart__wrapper'>
-                        <Headline type='h2' title='Bag is empty, please back to product page to add.' style={{ color: '#db3022' }} />
-                        <img src={EmptyCartBg} className='empty__cart__img' alt='empty-cart-background' />
-                    </div>
-                ) : (
-                        <Row>
-                            <Col md={8} className='left__items__container'>
-                                <div className='bag__items'>
-                                    <Checkbox value='checkedall' onClick={this.handleAllCheck} />
-                                    <div className='selected__items'>Select all items <span>{` (${itemSelected.length} items selected)`}</span></div>
-                                    <button className='button__delete__items' onClick={() => this.removeFromCart(this.state.cartItems)}>Delete</button>
-                                </div>
+                <Container>
+                    <Headline type='h1' title='My Bag' />
+                    <Gap height={30} />
+                    {cartItems.length === 0 ? (
+                        <div className='empty__cart__wrapper'>
 
-                                {this.state.cartItems.map((item) => {
-                                    return (
-                                        <div key={item.id} className='item__details'>
-                                            <Checkbox value={item.id} id={item.id} checked={item.isChecked} onChange={this.handleCheckChildElement} />
-                                            <div className='product__items'>
-                                                <img className='item__images' src={item.images[0]} alt={`${item.product_name}-img`} />
-                                                <div className='item__description'>
-                                                    {item.product_name.length > 25 ? (
-                                                        <Headline type='subheads' title={`${item.product_name.substr(0, 25)}...`} />
-                                                    ) : (
-                                                            <Headline type='subheads' title={item.product_name} />
-                                                        )}
-                                                    <Gap height={4} />
-                                                    <Subtext title={item.store} />
-                                                </div>
-                                            </div>
-                                            <div className='item__qty'>
-                                                <CircleButton variant='minus' disabled={item.qty === 1} onClick={() => this.handleMinus(item.id)} />
-                                                <div className='details__qty'>{parseInt(item.qty)}</div>
-                                                <CircleButton variant='plus' disabled={item.qty >= item.stock} onClick={() => this.handlePlus(item.id)} />
-                                            </div>
-                                            <Headline type='subheads' title={formatCurrency(item.total)} />
-                                        </div>
-                                    )
-                                })}
-                            </Col>
-                            <Col md={4}>
-                                <div className='shopping__summary'>
-                                    <Headline type='subheads' title='Shopping summary' />
-                                    <Gap height={30} />
-                                    <div className='total__price'>
-                                        <Subtext title='Total Price' size={16} />
-                                        <Headline type='h3' title={formatCurrency(cartItems.reduce((acc, curr) => acc + curr.price * curr.qty, 0))} />
+                            {/* ========================== EMPTY CART COMPONENT ========================== */}
+                            <Headline type='h2' title='Bag is empty, please back to product page to add.' style={{ color: '#db3022' }} />
+                            <img src={EmptyCartBg} className='empty__cart__img' alt='empty-cart-background' />
+
+                        </div>
+                    ) : (
+                            <Row>
+
+                                {/* ========================== LEFT ELEMENTS SECTION ========================== */}
+                                <Col md={8} className='left__items__container'>
+
+                                    {/* ========================== CHECKBOX ALL ITEMS SECTION ========================== */}
+                                    <div className='bag__items'>
+                                        <Checkbox value='checkedall' onClick={this.handleAllCheck} />
+                                        <div className='selected__items'>Select all items <span>{` (${itemSelected.length} items selected)`}</span></div>
+                                        <button className='button__delete__items' onClick={() => this.removeFromCart(this.state.cartItems)}>Delete</button>
                                     </div>
-                                    <Gap height={30} />
-                                    <Button variant='primary-round' title='Buy' onClick={this.buyCheckout} />
-                                </div>
-                            </Col>
-                        </Row>
-                    )}
+
+                                    {/* ========================== CHECKBOX PER-ITEM SECTION ========================== */}
+                                    {this.state.cartItems.map((item) => {
+                                        return (
+                                            <div key={item.id} className='item__details'>
+                                                <Checkbox value={item.id} id={item.id} checked={item.isChecked} onChange={this.handleCheckChildElement} />
+
+                                                {/* ========================== ITEM DETAIL PRODUCTS ========================== */}
+                                                <div className='product__items'>
+                                                    <img className='item__images' src={item.images[0]} alt={`${item.product_name}-img`} />
+                                                    <div className='item__description'>
+                                                        {item.product_name.length > 25 ? (
+                                                            <Headline type='subheads' title={`${item.product_name.substr(0, 25)}...`} />
+                                                        ) : (
+                                                                <Headline type='subheads' title={item.product_name} />
+                                                            )}
+                                                        <Gap height={4} />
+                                                        <Subtext title={item.store} />
+                                                    </div>
+                                                </div>
+
+                                                {/* ========================== ITEM QUANTITY PRODUCTS ========================== */}
+                                                <div className='item__qty'>
+                                                    <CircleButton variant='minus' disabled={item.qty === 1} onClick={() => this.handleMinus(item.id)} />
+                                                    <div className='details__qty'>{parseInt(item.qty)}</div>
+                                                    <CircleButton variant='plus' disabled={item.qty >= item.stock} onClick={() => this.handlePlus(item.id)} />
+                                                </div>
+                                                <Headline type='subheads' title={formatCurrency(item.total)} />
+                                            </div>
+                                        )
+                                    })}
+                                </Col>
+
+                                {/* ========================== RIGHT ELEMENT SECTION ========================== */}
+                                <Col md={4}>
+
+                                    {/* ========================== SHOPPING SUMMARY SECTION ========================== */}
+                                    <div className='shopping__summary'>
+                                        <Headline type='subheads' title='Shopping summary' />
+                                        <Gap height={30} />
+
+                                        {/* ========================== TOTAL PRICE ========================== */}
+                                        <div className='total__price'>
+                                            <Subtext title='Total Price' size={16} />
+                                            <Headline type='h3' title={formatCurrency(cartItems.reduce((acc, curr) => acc + curr.price * curr.qty, 0))} />
+                                        </div>
+                                        <Gap height={30} />
+                                        <Button variant='primary-round' title='Buy' onClick={this.buyCheckout} />
+                                    </div>
+                                </Col>
+                            </Row>
+                        )}
+                </Container>
             </div>
         )
     }

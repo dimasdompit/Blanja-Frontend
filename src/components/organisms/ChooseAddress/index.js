@@ -23,6 +23,8 @@ const ChooseAddress = (props) => {
                             <div key={address.id} className='address__wrapper' onClick={() => alert(`Address ID = ${address.id}`)}>
                                 <Headline type='subheads' title={`${address.name} | ${address.type}`} />
                                 <Gap height={10} />
+                                <Subtext size={14} title={`Phone Number: ${address.telp}`} />
+                                <Gap height={10} />
                                 <Subtext size={14} title={`${address.address}, ${address.city}, ${address.province}, ${address.zipcode} - ${address.country}`} />
                                 <Gap height={20} />
                                 <h6 className='btn__change__address' onClick={() => alert(`Change Address ID = ${address.id}`)}>Change Address</h6>

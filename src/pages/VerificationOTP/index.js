@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
-import { Button, Gap, Headline, Input, Subtext } from '../../components'
+import { Button, Gap, Input, Subtext } from '../../components'
 import { BlanjaLogo } from '../../assets'
 
 class VerificationOTP extends Component {

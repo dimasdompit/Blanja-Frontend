@@ -1,14 +1,33 @@
-import React, { useState } from 'react'
-import { faBell, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { Navbar, Container } from 'react-bootstrap';
 import { BlanjaLogo } from '../../../assets'
-import { Button, Gap, Icon, Search } from '../../atoms';
-import { CartIcon, Filter } from '../../molecules';
+import { Button, Gap, Icon, IconProfile, Search } from '../../atoms';
+import { CartIcon, Filter, PopoverNotification } from '../../molecules';
+import axios from 'axios';
 import './NavBar.scss'
 
 const NavBar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn] = useState(true)
+    const [user, setUser] = useState({})
     const [cartNotif] = useState(localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [])
+
+    let history = useHistory()
+
+    const getUserFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/auth`
+        }).then(response => {
+            console.log(response)
+            setUser(response.data)
+        }).catch(error => console.log(error))
+    }
+
+    useEffect(() => {
+        getUserFromAPI();
+    }, [])
 
     return (
         <Navbar bg="white" expand="lg" className='navbar__container' fixed='top'>
@@ -29,17 +48,17 @@ const NavBar = () => {
                         <Gap width={35} />
                         {!isLoggedIn ? (
                             <>
-                                <Button variant='primary-round' title='Login' onClick={() => alert('Button Login')} />
+                                <Button variant='primary-round' title='Login' onClick={() => history.push('/login')} />
                                 <Gap width={20} />
-                                <Button variant='outline-round' title='Signup' onClick={() => alert('Button Register')} />
+                                <Button variant='outline-round' title='Signup' onClick={() => history.push('/register')} />
                             </>
                         ) : (
                                 <>
-                                    <Icon icon={faBell} onClick={() => alert('icon bell')} />
+                                    <PopoverNotification />
                                     <Gap width={35} />
                                     <Icon icon={faEnvelope} onClick={() => alert('icon message')} />
                                     <Gap width={35} />
-                                    <Icon icon={faUser} onClick={() => alert('icon user')} />
+                                    <IconProfile profilePict={user.image} onClick={() => window.location.assign('/profile')} />
                                 </>
                             )}
 

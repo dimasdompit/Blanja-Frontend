@@ -9,5 +9,10 @@ import Checkout from './Checkout'
 import ForgotPassword from './ForgotPassword'
 import VerificationOTP from './VerificationOTP'
 import ResetPassword from './ResetPassword'
+import Profile from './Profile'
+import MyAccount from './MyAccount'
+import ShippingAddress from './ShippingAddress'
+import MyOrder from './MyOrder'
+import UserRoutes from './UserRoutes'
 
-export { Home, Login, Register, MainApp, Category, ProductDetails, MyBag, Checkout, ForgotPassword, VerificationOTP, ResetPassword }
+export { Home, Login, Register, MainApp, Category, ProductDetails, MyBag, Checkout, ForgotPassword, VerificationOTP, ResetPassword, Profile, MyAccount, ShippingAddress, MyOrder, UserRoutes }

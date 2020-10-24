@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Breadcrumbs, CardLoader, Cards, Gap, Headline } from '../../components'
 import axios from 'axios'
 import './category.scss'
+import { Container } from 'react-bootstrap'
 
 class Category extends Component {
     constructor(props) {
@@ -43,24 +44,29 @@ class Category extends Component {
     render() {
         return (
             <div className='category__container'>
-                {this.state.isLoading
-                    ? <CardLoader />
-                    : (
-                        <>
-                            <Breadcrumbs id={this.state.categories.id} category={this.state.categories.category} />
-                            <Gap height={23} />
-                            <Headline type='h1' title={this.state.categories.category} />
-                            <Gap height={25} />
+                <Container>
+                    {this.state.isLoading
+                        /* ==================== LOADING COMPONENT ==================== */
+                        ? <CardLoader />
+                        : (
+                            <>
+                                {/* ====================== BREADCRUMB SECTION ====================== */}
+                                <Breadcrumbs id={this.state.categories.id} category={this.state.categories.category} />
+                                <Gap height={23} />
+                                <Headline type='h1' title={this.state.categories.category} />
+                                <Gap height={25} />
 
-                            <div className="product__cards">
-                                {this.state.products.map((product) => {
-                                    return (
-                                        <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
-                                    )
-                                })}
-                            </div>
-                        </>
-                    )}
+                                {/* ====================== RESULT PRODUCTS SECTION ====================== */}
+                                <div className="product__cards">
+                                    {this.state.products.map((product) => {
+                                        return (
+                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                        )
+                                    })}
+                                </div>
+                            </>
+                        )}
+                </Container>
             </div>
         )
     }

@@ -42,6 +42,7 @@ class Login extends Component {
                                 {/* ==================== FORM INPUTS COMP ==================== */}
                                 <div label='Customer'>
                                     <div>
+                                        <Gap height={40} />
                                         <Input type='text' placeholder='Email' />
                                         <Gap height={16} />
                                         <Input type='password' placeholder='Password' />
@@ -49,6 +50,7 @@ class Login extends Component {
                                 </div>
                                 <div label='Seller'>
                                     <div>
+                                        <Gap height={40} />
                                         <Input type='text' placeholder='Email' />
                                         <Gap height={16} />
                                         <Input type='password' placeholder='Password' />

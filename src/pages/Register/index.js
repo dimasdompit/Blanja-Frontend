@@ -42,6 +42,7 @@ class Register extends Component {
                                 {/* ==================== FORM INPUTS COMP ==================== */}
                                 <div label='Customer'>
                                     <div>
+                                        <Gap height={40} />
                                         <Input type='text' placeholder='Name' />
                                         <Gap height={16} />
                                         <Input type='text' placeholder='Email' />
@@ -53,11 +54,12 @@ class Register extends Component {
                                 </div>
                                 <div label='Seller'>
                                     <div>
+                                        <Gap height={40} />
                                         <Input type='text' placeholder='Name' />
                                         <Gap height={16} />
                                         <Input type='text' placeholder='Email' />
                                         <Gap height={16} />
-                                        <Input type='tel' placeholder='Phone Number' />
+                                        <Input type='text' placeholder='Phone Number' />
                                         <Gap height={16} />
                                         <Input type='text' placeholder='Store name' />
                                         <Gap height={16} />
