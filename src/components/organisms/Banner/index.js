@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Slider from 'react-slick'
-import axios from 'axios'
+
+// Redux
+import { connect } from 'react-redux'
+import { getAllBanners } from '../../../config/Redux/actions/banners'
+
 import './banner.scss'
 
-
-const Banner = () => {
+const Banner = (props) => {
 
     /* =============================== INITIAL STATES =============================== */
     const [images, setImages] = useState([])
@@ -23,19 +26,15 @@ const Banner = () => {
 
     /* =============================== GET ALL BANNER FROM API =============================== */
     const getAllBannerFromAPI = () => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/banner`
-        }).then(response => {
-            setImages(response.data)
-        }).catch(error => {
-            console.log(error)
-        })
+        props.getAllBanners()
+            .then(response => {
+                setImages(response.value.data.data)
+            }).catch(error => {
+                console.log(error)
+            })
     }
 
-    useEffect(() => {
-        getAllBannerFromAPI()
-    }, [])
+    useEffect(getAllBannerFromAPI, [])
 
     return (
         <div>
@@ -43,7 +42,7 @@ const Banner = () => {
                 {images.map((banner, i) => {
                     return (
                         <div key={banner.id} className='banner__img'>
-                            <img src={banner.image} alt={`banner-${i + 1}`} />
+                            <img src={`${process.env.REACT_APP_API_URL}/images/banners/${banner.image}`} alt={`banner-${i + 1}`} />
                         </div>
                     )
                 })}
@@ -52,4 +51,10 @@ const Banner = () => {
     )
 }
 
-export default Banner
+const mapStateToProps = (state) => ({
+    banners: state.banners
+})
+
+const mapDispatchToProps = { getAllBanners }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Banner)

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
-import axios from 'axios'
+
+// Redux
+import { connect } from 'react-redux'
+import { getAllCategories } from '../../../config/Redux/actions/categories'
+
 import './carousel.scss'
 
-const Carousel = () => {
+
+const Carousel = (props) => {
 
     /* ======================== INITIAL STATES =========================== */
     const [categories, setCategories] = useState([])
@@ -50,20 +55,16 @@ const Carousel = () => {
 
     /* ======================== GET ALL CATEGORIES FROM API =========================== */
     const getAllCategoriesFromAPI = () => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/categories`
-        }).then(response => {
-            // SET NEW STATE FOR CATEGORIES IMAGE
-            setCategories(response.data)
-        }).catch(error => {
-            console.log(error)
-        })
+        props.getAllCategories()
+            .then(response => {
+                // SET NEW STATE FOR CATEGORIES IMAGE
+                setCategories(response.value.data.data)
+            }).catch(error => {
+                console.log(error)
+            })
     }
 
-    useEffect(() => {
-        getAllCategoriesFromAPI()
-    }, [])
+    useEffect(getAllCategoriesFromAPI, [])
 
     return (
         <Slider {...settings}>
@@ -71,7 +72,7 @@ const Carousel = () => {
                 return (
                     <Link key={category.id} to={`/category/${category.id}`}>
                         <div className='carousel__container'>
-                            <img src={category.image} alt={`${category.category}-img`} />
+                            <img src={`${process.env.REACT_APP_API_URL}/images/categories/${category.image}`} alt={`${category.category}-img`} />
                         </div>
                     </Link>
                 )
@@ -80,4 +81,10 @@ const Carousel = () => {
     )
 }
 
-export default Carousel
+const mapStateToProps = (state) => ({
+    categories: state.categories
+})
+
+const mapDispatchToProps = { getAllCategories }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel)

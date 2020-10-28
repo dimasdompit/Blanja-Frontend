@@ -1,7 +1,7 @@
 .profile__wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    // height: 100vh;
     // padding: 40px 0;
     
     // .profile__content {
@@ -9,16 +9,15 @@
     //     background-color: red;
     // }
     
-    .profile__content.profile__left__section {
-        position: sticky;
+    .profile__left__section {
         box-sizing: border-box;
         padding: 220px 70px 0 170px;
         position: sticky;
-        height: 100vh;
+        height: 100%;
         background-color: #fff;
     }
 
-    .profile__content.profile__right__section {
+    .profile__right__section {
         background-color: #F5F5F5;
     }
 }

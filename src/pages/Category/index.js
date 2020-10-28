@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { Breadcrumbs, CardLoader, Cards, Gap, Headline } from '../../components'
 import axios from 'axios'
-import './category.scss'
 import { Container } from 'react-bootstrap'
+
+// Redux
+import { connect } from 'react-redux'
+import { getCategoryDetails } from '../../config/Redux/actions/categories'
+import { getProductsByCategories } from '../../config/Redux/actions/products'
+
+// Styling
+import './category.scss'
 
 class Category extends Component {
     constructor(props) {
@@ -16,24 +23,24 @@ class Category extends Component {
 
     /* ============================= GET CATEGORY DETAILS FROM API ============================= */
     getCategoryDetailsFromAPI = () => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/categories/${this.props.match.params.id}`
-        }).then(response => {
-            this.setState({ categories: response.data, isLoading: false })
-        }).catch(error => {
-            console.log(error)
-        })
+        const id = this.props.match.params.id;
+
+        this.props.getCategoryDetails(id)
+            .then(response => {
+                this.setState({ categories: response.value.data.data, isLoading: false })
+            }).catch(error => {
+                console.log(error)
+            })
     }
 
     /* ============================= GET PRODUCTS BY CATEGORY ============================= */
-    getProductByCategories = (category) => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/products`
-        }).then(response => {
-            this.setState({ products: response.data, isLoading: false })
-        }).catch(error => console.log(error))
+    getProductByCategories = () => {
+        const id = this.props.match.params.id;
+
+        this.props.getProductsByCategories(id)
+            .then(response => {
+                this.setState({ products: response.value.data.data, isLoading: false })
+            }).catch(error => console.log(error))
     }
 
     componentDidMount() {
@@ -60,7 +67,15 @@ class Category extends Component {
                                 <div className="product__cards">
                                     {this.state.products.map((product) => {
                                         return (
-                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                            <Cards
+                                                key={product.id}
+                                                id={product.id}
+                                                title={product.product_name}
+                                                price={product.price}
+                                                store={product.store}
+                                                image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
+                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                            />
                                         )
                                     })}
                                 </div>
@@ -72,4 +87,11 @@ class Category extends Component {
     }
 }
 
-export default Category
+const mapStateToProps = (state) => ({
+    products: state.products,
+    categories: state.categories
+})
+
+const mapDispatchToProps = { getCategoryDetails, getProductsByCategories }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category)

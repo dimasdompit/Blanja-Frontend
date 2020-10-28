@@ -1,35 +1,67 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Accordion } from '../../components'
+import { Accordion, Sidebar, SidebarItems } from '../../components'
+import UserRoutes from '../UserRoutes'
 import './profile.scss'
+import axios from 'axios'
 
-const Profile = () => {
+const Profile = (props) => {
+    const [user, setUser] = useState({});
+
+    const getUserFromAPI = () => {
+        axios({
+            method: 'GET',
+            url: `${process.env.REACT_APP_API_URL}/auth`
+        })
+            .then(response => {
+                console.log(response.data)
+                setUser(response.data)
+            })
+            .catch(error => console.log(error))
+    }
+
+    useEffect(() => {
+        getUserFromAPI()
+    }, [])
     return (
-        <div className='profile__wrapper'>
-            <Container fluid>
-                <Row>
-                    <Col md={4} className='profile__content profile__left__section'>
-                        <div>
-                            <Accordion>
-                                <div label='Store' icon='store'>
-                                    <p>Store Profile</p>
-                                </div>
-                                <div label='Product' icon='product'>
-                                    <p>My Products</p>
-                                    <p>Selling Products</p>
-                                </div>
-                                <div label='Order' icon='order'>
-                                    <p>My Order</p>
-                                    <p>Order Cancel</p>
-                                </div>
-                            </Accordion>
-                        </div>
-                    </Col>
-                    <Col md={8} className='profile__content profile__right__section'>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <Router>
+            <div className='profile__wrapper'>
+                <Container fluid>
+                    <Row>
+                        <Col md={4} className='profile__left__section'>
+                            <Sidebar />
+                        </Col>
+                        <Col md={8} className='profile__right__section'>
+                            <Switch>
+                                {user.role === 1
+                                    ? (
+                                        SidebarItems.customer.map((route, index) => (
+                                            <Route
+                                                key={index}
+                                                path={route.path}
+                                                exact={route.exact}
+                                                children={<route.main />}
+                                            />
+                                        ))
+                                    )
+                                    : (
+                                        SidebarItems.customer.map((route, index) => (
+                                            <Route
+                                                key={index}
+                                                path={route.path}
+                                                exact={route.exact}
+                                                children={<route.main />}
+                                            />
+                                        ))
+                                    )
+                                }
+                            </Switch>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </Router>
     )
 }
 

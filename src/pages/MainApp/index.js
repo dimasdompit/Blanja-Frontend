@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import { NavBar } from '../../components'
 import Home from '../Home'
 import Category from '../Category'
 import ProductDetails from '../ProductDetails'
 import MyBag from '../MyBag'
 import Checkout from '../Checkout'
-import './mainApp.scss'
+// import UserRoutes from '../UserRoutes'
 import Profile from '../Profile'
+import './mainApp.scss'
 
 const MainApp = () => {
     return (

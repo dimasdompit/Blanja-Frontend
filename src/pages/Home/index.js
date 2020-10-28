@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { Banner, CardLoader, Cards, Carousel, Gap, Headline, Subtext } from '../../components'
-import axios from 'axios'
-import './home.scss'
 import { Container } from 'react-bootstrap'
+
+// Redux
+import { connect } from 'react-redux';
+import { getAllProducts } from '../../config/Redux/actions/products'
+
+// Styling
+import './home.scss'
 
 class Home extends Component {
     constructor(props) {
@@ -15,18 +20,15 @@ class Home extends Component {
 
     /** ======================================= GET ALL PRODUCTS FROM API ======================================== */
     getAllProductsFromAPI = () => {
-        axios({
-            method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/products`
-        }).then(response => {
-            console.log(response.data)
-            this.setState({
-                products: response.data,
-                isLoading: false
+        this.props.getAllProducts()
+            .then(response => {
+                this.setState({
+                    products: response.value.data.data,
+                    isLoading: false
+                })
+            }).catch(error => {
+                console.log(error.message)
             })
-        }).catch(error => {
-            console.log(error.message)
-        })
     }
 
     componentDidMount() {
@@ -59,7 +61,15 @@ class Home extends Component {
                                 <div className="product__cards">
                                     {this.state.products.map((product) => {
                                         return (
-                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                            <Cards
+                                                key={product.id}
+                                                id={product.id}
+                                                title={product.product_name}
+                                                price={product.price}
+                                                store={product.store}
+                                                image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
+                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                            />
                                         )
                                     })}
                                 </div>
@@ -72,7 +82,15 @@ class Home extends Component {
                                 <div className="product__cards">
                                     {this.state.products.map((product) => {
                                         return (
-                                            <Cards key={product.id} id={product.id} title={product.product_name} price={product.price} store={product.store} image={product.images[0]} onClick={() => this.props.history.push(`/product-details/${product.id}`)} />
+                                            <Cards
+                                                key={product.id}
+                                                id={product.id}
+                                                title={product.product_name}
+                                                price={product.price}
+                                                store={product.store}
+                                                image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
+                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                            />
                                         )
                                     })}
                                 </div>
@@ -84,4 +102,10 @@ class Home extends Component {
     }
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+    products: state.products
+})
+
+const mapDispatchToProps = { getAllProducts }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

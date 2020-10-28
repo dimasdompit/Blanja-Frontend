@@ -30,7 +30,7 @@ const NavBar = () => {
     }, [])
 
     return (
-        <Navbar bg="white" expand="lg" className='navbar__container' fixed='top'>
+        <Navbar bg="white" expand="lg" className='navbar__container'>
             <Container>
                 <Navbar.Brand className='brand__logo' href='/'><img src={BlanjaLogo} alt="Blanja-Logo" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

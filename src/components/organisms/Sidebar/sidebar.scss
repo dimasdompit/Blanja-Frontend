@@ -1,0 +1,30 @@
+.sidebar__wrapper {
+    background-color: #fff;
+    height: 100vh;
+    font-family: MetropolisRegular;
+
+    .sidebar__link__style {
+        color: #9b9b9b;
+        text-decoration: none;
+
+        .sidebar__items {
+            padding: 16px 24px;
+            transition: all .25s ease-in-out;
+            // margin: 4px 12px;
+            border-radius: 4px;
+    
+            p {
+                font-weight: normal;
+                text-decoration: none;
+            }
+    
+            &:hover {
+                cursor: pointer;
+                color: #000
+            }
+    
+            // &:hover:not(:first-child) {}
+        }
+    }
+
+}
