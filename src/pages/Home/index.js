@@ -19,8 +19,8 @@ class Home extends Component {
     }
 
     /** ======================================= GET ALL PRODUCTS FROM API ======================================== */
-    getAllProductsFromAPI = () => {
-        this.props.getAllProducts()
+    getAllProductsFromAPI = async () => {
+        await this.props.getAllProducts()
             .then(response => {
                 this.setState({
                     products: response.value.data.data,
@@ -36,6 +36,7 @@ class Home extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className='home__wrapper'>
                 <Container>
@@ -68,7 +69,7 @@ class Home extends Component {
                                                 price={product.price}
                                                 store={product.store}
                                                 image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
-                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                                onClick={() => this.props.history.replace(`/product-details/${product.id}`)}
                                             />
                                         )
                                     })}
@@ -89,7 +90,7 @@ class Home extends Component {
                                                 price={product.price}
                                                 store={product.store}
                                                 image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
-                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                                onClick={() => this.props.history.replace(`/product-details/${product.id}`)}
                                             />
                                         )
                                     })}

@@ -43,9 +43,9 @@ class Login extends Component {
                                 <div label='Customer'>
                                     <div>
                                         <Gap height={40} />
-                                        <Input type='text' placeholder='Email' />
+                                        <Input type='text' name='Email' placeholder='Email' />
                                         <Gap height={16} />
-                                        <Input type='password' placeholder='Password' />
+                                        <Input type='password' name='Password' placeholder='Password' />
                                     </div>
                                 </div>
                                 <div label='Seller'>

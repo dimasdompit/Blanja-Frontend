@@ -1,10 +1,15 @@
 import React from 'react'
 import './productDetailsImage.scss'
 
-const ProductDetailsImage = ({ img }) => {
+const ProductDetailsImage = (props) => {
     return (
         <div className='image__container'>
-            <img className='image__content' src={img} alt={`${img}-image`} />
+            {props.image !== undefined
+                ? (
+                    <img className='image__content' src={props.image} alt={`${props.image}-image`} />
+                ) : (
+                    <div></div>
+                )}
         </div>
     )
 }

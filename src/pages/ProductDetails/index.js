@@ -1,31 +1,59 @@
 import React, { Component } from 'react'
 import { Brand, Breadcrumbs, Button, Cards, CircleButton, Gap, Headline, ProductDetailsImage, ProductInformation, Subtext } from '../../components'
-import { data } from '../../assets'
+// import { data } from '../../assets'
 import { Col, Container, Row } from 'react-bootstrap'
+
+// Redux
+import { connect } from 'react-redux'
+import { getProductDetails, getAllProducts } from '../../config/Redux/actions/products'
 import './productDetails.scss'
 
 class ProductDetails extends Component {
+
     constructor(props) {
         super();
         this.state = {
-            product: data.products[1],
-            products: data.products,
+            product: [],
+            products: [],
             qty: 1,
             cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
             items: localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : []
         }
     }
 
+    /* ================================ FIND ONE ITEM ================================ */
     getItem = (id) => {
         const product = this.state.products.find(item => item.id === id)
         return product;
     }
 
-    getProductDetails = () => {
-        const product = this.getItem(parseInt(this.props.match.params.id))
-        this.setState({
-            product: product
-        })
+    getAllProductsFromAPI = async () => {
+        await this.props.getAllProducts()
+            .then(response => {
+                this.setState({
+                    products: response.value.data.data
+                })
+            })
+            .catch(error => console.log(error.response))
+    }
+
+    /* ================================ GET PRODUCT DETAILS FROM API ================================ */
+    getProductDetailsFromAPI = async () => {
+        const id = this.props.match.params.id;
+
+        await this.props.getProductDetails(id)
+            .then(response => {
+                this.setState({
+                    product: response.value.data.data
+                })
+            })
+            .catch(error => console.log(error.response))
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+        this.getAllProductsFromAPI()
+        this.getProductDetailsFromAPI()
     }
 
     handlePlus = () => {
@@ -92,11 +120,6 @@ class ProductDetails extends Component {
         this.props.history.push('/checkout')
     }
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-        this.getProductDetails()
-    }
-
     render() {
         const { product_name, description, category, store, price, color, size, condition_name, stock, images } = this.state.product;
         return (
@@ -111,11 +134,16 @@ class ProductDetails extends Component {
                             <Col md={6}>
                                 {/* ======================== PRODUCT IMAGES ======================== */}
                                 <div className="image__container">
-                                    {images.map((image, i) => {
-                                        return (
-                                            <ProductDetailsImage key={i} img={image} />
-                                        )
-                                    })}
+                                    {images !== undefined && (
+                                        images.map((img, i) => {
+                                            return (
+                                                <ProductDetailsImage
+                                                    key={i}
+                                                    image={`${process.env.REACT_APP_API_URL}/images/products/${img}`}
+                                                />
+                                            )
+                                        })
+                                    )}
                                 </div>
                             </Col>
                             <Col md={6}>
@@ -167,7 +195,14 @@ class ProductDetails extends Component {
                         <div className="product__suggestion">
                             {this.state.products.map((product) => {
                                 return (
-                                    <Cards key={product.id} id={product.id} title={product.product_name} store={product.store} image={product.images[0]} price={product.price} onClick={() => window.location.assign(`/product-details/${product.id}`)} />
+                                    <Cards
+                                        key={product.id}
+                                        id={product.id}
+                                        title={product.product_name}
+                                        store={product.store}
+                                        image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
+                                        price={product.price}
+                                        onClick={() => window.location.assign(`/product-details/${product.id}`)} />
                                 )
                             })}
                         </div>
@@ -178,4 +213,10 @@ class ProductDetails extends Component {
     }
 }
 
-export default ProductDetails
+const mapStateToProps = (state) => ({
+    products: state.products
+})
+
+const mapDispatchToProps = { getProductDetails, getAllProducts }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails)

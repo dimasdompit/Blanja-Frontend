@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Breadcrumbs, CardLoader, Cards, Gap, Headline } from '../../components'
-import axios from 'axios'
 import { Container } from 'react-bootstrap'
 
 // Redux
@@ -22,10 +21,10 @@ class Category extends Component {
     }
 
     /* ============================= GET CATEGORY DETAILS FROM API ============================= */
-    getCategoryDetailsFromAPI = () => {
+    getCategoryDetailsFromAPI = async () => {
         const id = this.props.match.params.id;
 
-        this.props.getCategoryDetails(id)
+        await this.props.getCategoryDetails(id)
             .then(response => {
                 this.setState({ categories: response.value.data.data, isLoading: false })
             }).catch(error => {
@@ -34,10 +33,10 @@ class Category extends Component {
     }
 
     /* ============================= GET PRODUCTS BY CATEGORY ============================= */
-    getProductByCategories = () => {
+    getProductByCategories = async () => {
         const id = this.props.match.params.id;
 
-        this.props.getProductsByCategories(id)
+        await this.props.getProductsByCategories(id)
             .then(response => {
                 this.setState({ products: response.value.data.data, isLoading: false })
             }).catch(error => console.log(error))

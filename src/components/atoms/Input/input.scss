@@ -1,13 +1,58 @@
-.input__wrapper {
-    .input {
-        border: 1px solid #9b9b9b;
-        padding: 16px 23px;
-        border-radius: 4px;
-        outline: none;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 14px;
-        font-family: MetropolisRegular;
-    }
+// .input__wrapper {
+//     .input {
+//         border: 1px solid #9b9b9b;
+//         padding: 16px 23px;
+//         border-radius: 4px;
+//         outline: none;
+//         width: 100%;
+//         box-sizing: border-box;
+//         font-size: 14px;
+//         font-family: MetropolisRegular;
+//     }
+// }
+
+.field label {
+    position: relative;
+    width: 100%;
 }
-  
+
+.field label input {
+    font-size: 0.875rem;
+    color: #000;
+    background-color: transparent;
+    padding: 1rem 1.2rem;
+    // min-width: 100%;
+    width: 100%;
+    border-radius: 0.2rem;
+    border: 2px solid #9b9b9b;
+    transition: border-color 0.2s;
+}
+
+.field label input:focus {
+    border-color: #000;
+}
+
+.field label p {
+    color: #9b9b9b;
+    font-size: 0.875rem;
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0.8rem;
+    padding: 0 0.4rem;
+    background-color: #fff;
+    transition: top 0.2s, font-size 0.2s, color 0.2s;
+    pointer-events: none;
+}
+
+.field label input:focus + p,
+.field label input:not(:placeholder-shown) + p {
+    top: 1px;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.field label input:not(:focus) + p {
+    color: #9b9b9b;
+}
