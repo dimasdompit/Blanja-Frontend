@@ -22,7 +22,7 @@ const auth = (state = initialState, action) => {
                 isLoading: false,
                 isError: true,
                 isLoggedIn: false,
-                errorMsg: action.payload.data.message
+                errorMsg: action.payload.message
             }
         case 'REGISTER_FULFILLED':
             return {
@@ -47,7 +47,7 @@ const auth = (state = initialState, action) => {
                 isLoading: false,
                 isError: true,
                 isLoggedIn: false,
-                errorMsg: action.payload.data.message
+                errorMsg: action.payload.message
             }
         case 'LOGIN_FULFILLED':
             return {
@@ -72,7 +72,7 @@ const auth = (state = initialState, action) => {
                 isLoading: false,
                 isError: true,
                 isLoggedIn: false,
-                errorMsg: action.payload.data.message
+                errorMsg: action.payload.message
             }
         case 'FORGOT_PASSWORD_FULFILLED':
             return {
@@ -97,7 +97,7 @@ const auth = (state = initialState, action) => {
                 isLoading: false,
                 isError: true,
                 isLoggedIn: false,
-                errorMsg: action.payload.data.message
+                errorMsg: action.payload.message
             }
         case 'VERIFICATION_FULFILLED':
             return {
@@ -122,7 +122,7 @@ const auth = (state = initialState, action) => {
                 isLoading: false,
                 isError: true,
                 isLoggedIn: false,
-                errorMsg: action.payload.data.message
+                errorMsg: action.payload.message
             }
         case 'CHANGE_PASSWORD_FULFILLED':
             return {

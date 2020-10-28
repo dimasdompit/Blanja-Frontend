@@ -1,11 +1,11 @@
 import React from 'react'
 import './input.scss'
 
-const Input = ({ type, name, placeholder, ...props }) => {
+const Input = ({ type, placeholder, ...props }) => {
     return (
         <div className="field">
-            <label for={name}>
-                <input className='input' placeholder='  ' name={name} type={type} {...props} />
+            <label>
+                <input className='input' placeholder='  ' type={type} {...props} />
                 <p>{placeholder}</p>
             </label>
         </div>
