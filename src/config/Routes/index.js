@@ -10,7 +10,7 @@ const Routes = (props) => {
                 <Route path='/register' component={Register} />
                 {/* <Route path='/profile' component={UserRoutes} /> */}
                 <Route path='/forgot-password' component={ForgotPassword} />
-                <Route path='/verificationOTP' component={VerificationOTP} />
+                <Route path='/verification-otp' component={VerificationOTP} />
                 <Route path='/reset-password' component={ResetPassword} />
                 <Route path='/' component={MainApp} />
             </Switch>
