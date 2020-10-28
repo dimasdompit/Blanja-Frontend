@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 import { Button, Gap, Headline, Input, SignTabs } from '../../components'
 import { BlanjaLogo } from '../../assets'
+import swal from 'sweetalert'
 
 // Redux
 import { connect } from 'react-redux';
@@ -28,10 +29,29 @@ class Login extends Component {
 
         this.props.login(data)
             .then(response => {
-                alert(`${response.value.data.message}`)
+                const message = response.value.data.message;
+                swal({
+                    icon: "success",
+                    title: `${message}`,
+                    button: false,
+                    timer: 2000
+                })
+            })
+            .then(() => {
+                setTimeout(() => {
+                    this.props.history.push('/')
+                }, 2000)
+
             })
             .catch(error => {
-                console.log(error.response)
+                console.log(error.response);
+                const errorMsg = error.response.data.message;
+                swal({
+                    icon: 'error',
+                    title: `${errorMsg}`,
+                    button: true,
+                    dangerMode: true
+                })
             })
     }
 
