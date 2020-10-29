@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Breadcrumbs, CardLoader, Cards, Gap, Headline } from '../../components'
+import { Breadcrumbs, CardLoader, Cards, EmptyCategories, Gap, Headline } from '../../components'
 import { Container } from 'react-bootstrap'
 
 // Redux
@@ -63,21 +63,27 @@ class Category extends Component {
                                 <Gap height={25} />
 
                                 {/* ====================== RESULT PRODUCTS SECTION ====================== */}
-                                <div className="product__cards">
-                                    {this.state.products.map((product) => {
-                                        return (
-                                            <Cards
-                                                key={product.id}
-                                                id={product.id}
-                                                title={product.product_name}
-                                                price={product.price}
-                                                store={product.store}
-                                                image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
-                                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
-                                            />
-                                        )
-                                    })}
-                                </div>
+                                {this.state.products.length !== 0
+                                    ? (
+                                        <div className="product__cards">
+                                            {this.state.products.map((product) => {
+                                                return (
+                                                    <Cards
+                                                        key={product.id}
+                                                        id={product.id}
+                                                        title={product.product_name}
+                                                        price={product.price}
+                                                        store={product.store}
+                                                        image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
+                                                        onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
+                                    )
+                                    : (
+                                        <EmptyCategories />
+                                    )}
                             </>
                         )}
                 </Container>
