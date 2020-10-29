@@ -6,14 +6,7 @@ export const register = (data) => {
         payload: axios({
             method: "POST",
             url: `${process.env.REACT_APP_API_URL}/api/v1/auth/register`,
-            data: {
-                name: data.name,
-                email: data.email,
-                password: data.password,
-                role: data.role,
-                store: data.store,
-                telp: data.telp
-            },
+            data: data,
         }),
     };
 };

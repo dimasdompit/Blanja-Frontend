@@ -9,9 +9,9 @@ const PopoverUsers = (props) => {
             placement='bottom'
             overlay={
                 <Popover id='popover-positioned-bottom'>
-                    <Popover.Content>
+                    <Popover.Content style={styles.content__wrapper}>
                         <Headline type='subheads' style={styles.text} title='Profile' onClick={() => window.location.assign('/profile')} />
-                        <Gap height={10} />
+                        <Gap height={20} />
                         <Headline type='subheads' style={styles.text} title='Log Out' onClick={props.logout} />
                     </Popover.Content>
                 </Popover>
@@ -24,7 +24,7 @@ const PopoverUsers = (props) => {
 
 const styles = {
     content__wrapper: {
-        padding: 50
+        padding: 20
     },
     text: {
         fontSize: 14,

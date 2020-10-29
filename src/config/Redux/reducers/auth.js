@@ -29,7 +29,7 @@ const auth = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                isLoggedIn: true,
+                isLoggedIn: false,
                 data: action.payload.data.data
             }
 
@@ -79,7 +79,7 @@ const auth = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                isLoggedIn: true,
+                isLoggedIn: false,
                 data: action.payload.data.data
             }
 
@@ -104,7 +104,7 @@ const auth = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                isLoggedIn: true,
+                isLoggedIn: false,
                 data: action.payload.data.data
             }
 
@@ -129,7 +129,7 @@ const auth = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                isLoggedIn: true,
+                isLoggedIn: false,
                 data: action.payload.data.data
             }
 

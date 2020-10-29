@@ -170,7 +170,7 @@ class MyBag extends Component {
 
                                                 {/* ========================== ITEM DETAIL PRODUCTS ========================== */}
                                                 <div className='product__items'>
-                                                    <img className='item__images' src={item.images[0]} alt={`${item.product_name}-img`} />
+                                                    <img className='item__images' src={`${process.env.REACT_APP_API_URL}/images/products/${item.images}`} alt={`${item.product_name}-img`} />
                                                     <div className='item__description'>
                                                         {item.product_name.length > 25 ? (
                                                             <Headline type='subheads' title={`${item.product_name.substr(0, 25)}...`} />
