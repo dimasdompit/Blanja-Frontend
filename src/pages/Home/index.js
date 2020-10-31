@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { Banner, CardLoader, Cards, Carousel, Gap, Headline, Subtext } from '../../components'
+import { Banner, CardLoader, Cards, Carousel, Gap, Headline, NewProducts, Subtext } from '../../components'
+import { Button } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 // Redux
 import { connect } from 'react-redux';
@@ -18,9 +21,14 @@ class Home extends Component {
         }
     }
 
+    /** ======================================= GET PARAMS ======================================== */
+    getParams = () => {
+        return new URLSearchParams(this.props.location.search)
+    }
+
     /** ======================================= GET ALL PRODUCTS FROM API ======================================== */
-    getAllProductsFromAPI = async () => {
-        await this.props.getAllProducts()
+    getAllProductsFromAPI = async (search, sort, order, page, limit) => {
+        await this.props.getAllProducts(search, sort, order, page, limit)
             .then(response => {
                 this.setState({
                     products: response.value.data.data,
@@ -31,12 +39,22 @@ class Home extends Component {
             })
     }
 
+    handleParams = async (search, page) => {
+        await this.getAllProductsFromAPI(
+            search,
+            this.getParams().get('sort'),
+            this.getParams().get('order'),
+            page,
+            this.getParams().get('limit')
+        )
+    }
+
     componentDidMount() {
         this.getAllProductsFromAPI();
+        this.handleParams();
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className='home__wrapper'>
                 <Container>
@@ -56,24 +74,8 @@ class Home extends Component {
                                 <Gap height={35} />
 
                                 {/* ======= NEW PRODUCTS SECTION ======= */}
-                                <Headline type='h1' title='New' />
-                                <Subtext title={`You've never seen it before!`} />
-                                <Gap height={25} />
-                                <div className="product__cards">
-                                    {this.state.products.map((product) => {
-                                        return (
-                                            <Cards
-                                                key={product.id}
-                                                id={product.id}
-                                                title={product.product_name}
-                                                price={product.price}
-                                                store={product.store}
-                                                image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
-                                                onClick={() => this.props.history.replace(`/product-details/${product.id}`)}
-                                            />
-                                        )
-                                    })}
-                                </div>
+                                <NewProducts search={this.props.location.search} />
+
                                 <Gap height={25} />
 
                                 {/* ======= POPULAR PRODUCTS SECTION ======= */}
