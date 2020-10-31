@@ -29,7 +29,6 @@ class NewProducts extends Component {
     }
 
     handleParams = async (page) => {
-        console.log(page)
         await this.getNewProducts(
             this.getParams().get('search'),
             this.getParams().get('sort'),
@@ -65,10 +64,7 @@ class NewProducts extends Component {
                         )
                     })}
                 </div>
-                <Paginations
-                    page={this.getParams().get('page')}
-                    queryParams={this.handleParams}
-                />
+                <Paginations page={this.getParams().get('page')} queryParams={this.handleParams} />
             </>
         )
     }

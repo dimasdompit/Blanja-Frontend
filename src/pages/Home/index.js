@@ -8,6 +8,7 @@ import { getAllProducts } from '../../config/Redux/actions/products'
 
 // Styling
 import './home.scss'
+import { getURLParams } from '../../utils';
 
 class Home extends Component {
     constructor(props) {
@@ -16,6 +17,11 @@ class Home extends Component {
             products: [],
             isLoading: true,
         }
+    }
+
+    /** ======================================= GET PARAMS ======================================== */
+    getParams = () => {
+        return getURLParams(this.props.location.search)
     }
 
     /** ======================================= GET ALL PRODUCTS FROM API ======================================== */
@@ -31,8 +37,19 @@ class Home extends Component {
             })
     }
 
+    handleParams = async (search) => {
+        await this.getAllProductsFromAPI(
+            search,
+            this.getParams().get('sort'),
+            this.getParams().get('order'),
+            this.getParams().get('page'),
+            this.getParams().get('limit')
+        )
+    }
+
     componentDidMount() {
-        this.getAllProductsFromAPI();
+        // this.getAllProductsFromAPI();
+        this.handleParams();
     }
 
     render() {
