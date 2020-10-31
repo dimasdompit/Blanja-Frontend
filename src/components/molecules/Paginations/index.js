@@ -3,13 +3,12 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'react-bootstrap'
 import { useQueryState } from 'react-router-use-location-state'
-import { Gap } from '../../atoms'
 import { connect } from 'react-redux'
 
 const Paginations = (props) => {
     const [currentPage, setCurrentPage] = useQueryState('page', 1);
-    const totalData = props.products.pagination.totalData;
-    let limit = props.limit === null ? 10 : props.limit;
+    // const totalData = props.products.pagination.totalData;
+    // let limit = props.limit === null ? 10 : props.limit;
     let activePage = props.limit === null ? 1 : props.page;
     let totalPage = props.products.pagination.totalPage;
 
@@ -27,19 +26,21 @@ const Paginations = (props) => {
             <div className='product__button'>
 
                 {currentPage !== 1 && (
-                    <Button variant='danger' onClick={(e) => {
-                        e.preventDefault();
-                        setCurrentPage(currentPage - 1)
-                    }}>
+                    <Button
+                        style={{ marginRight: 3 }}
+                        variant='danger'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(currentPage - 1)
+                        }}>
                         <FontAwesomeIcon icon={faAngleDoubleLeft} />
                     </Button>
                 )}
 
-                <Gap width={8} />
-
                 {number.map((val, i) => {
                     return (
                         <Button
+                            style={{ marginRight: 3, marginLeft: 3 }}
                             key={i}
                             variant='danger'
                             active={currentPage === val ? true : false}
@@ -53,13 +54,14 @@ const Paginations = (props) => {
                     )
                 })}
 
-                <Gap width={8} />
-
                 {currentPage < totalPage && (
-                    <Button variant='danger' onClick={(e) => {
-                        e.preventDefault();
-                        setCurrentPage(currentPage + 1)
-                    }}>
+                    <Button
+                        style={{ marginLeft: 3 }}
+                        variant='danger'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(currentPage + 1)
+                        }}>
                         <FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Button>
                 )}

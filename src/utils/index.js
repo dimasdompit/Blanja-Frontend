@@ -1,3 +1,4 @@
 import formatCurrency from './formatCurrency'
+import getURLParams from './getURLParams'
 
-export { formatCurrency }
+export { formatCurrency, getURLParams }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Gap, Headline, Subtext } from '../../atoms'
 import { Cards, Paginations } from '../../molecules'
 
 // Redux
 import { connect } from 'react-redux'
 import { getAllProducts } from '../../../config/Redux/actions/products'
-// import { faNetworkWired } from '@fortawesome/free-solid-svg-icons'
+import { getURLParams } from '../../../utils'
 
 class NewProducts extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class NewProducts extends Component {
     }
 
     getParams = () => {
-        return new URLSearchParams(this.props.search)
+        return getURLParams(this.props.search)
     }
 
     getNewProducts = async (search, sort, order, page, limit) => {
@@ -39,12 +40,11 @@ class NewProducts extends Component {
     }
 
     componentDidMount() {
-        // this.getNewProducts()
         this.handleParams()
     }
 
     render() {
-        console.log(this.props)
+        const { history } = this.props;
         return (
             <>
                 <Headline type='h1' title='New' />
@@ -60,13 +60,12 @@ class NewProducts extends Component {
                                 price={product.price}
                                 store={product.store}
                                 image={`${process.env.REACT_APP_API_URL}/images/products/${product.image}`}
-                                onClick={() => this.props.history.push(`/product-details/${product.id}`)}
+                                onClick={() => history.push(`/product-details/${product.id}`)}
                             />
                         )
                     })}
                 </div>
                 <Paginations
-                    limit={this.getParams().get('limit') || 10}
                     page={this.getParams().get('page')}
                     queryParams={this.handleParams}
                 />
@@ -81,4 +80,4 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = { getAllProducts }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProducts)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NewProducts))

@@ -10,5 +10,6 @@ import Accordion from './Accordion'
 import Sidebar from './Sidebar'
 import SidebarItems from './SidebarItems'
 import NewProducts from './NewProducts'
+import PopularProducts from './PopularProducts'
 
-export { NavBar, Banner, Carousel, Brand, ProductInformation, ChooseAddress, SignTabs, AccordionSection, Accordion, Sidebar, SidebarItems, NewProducts }
+export { NavBar, Banner, Carousel, Brand, ProductInformation, ChooseAddress, SignTabs, AccordionSection, Accordion, Sidebar, SidebarItems, NewProducts, PopularProducts }
