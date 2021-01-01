@@ -68,8 +68,8 @@ const NavBar = (props) => {
                     <div className="search__area">
                         <Search placeholder='Search' onKeyDown={handleSearch} />
                     </div>
-                    <Gap width={11} />
-                    <Filter />
+                    {/* <Gap width={11} />
+                    <Filter /> */}
                     <div className="cart__area">
                         <Gap width={100} />
                         <CartIcon data={props.cart !== undefined ? props.cart.cartItems.length : null} onClick={() => window.location.assign('/cart')} />

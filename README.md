@@ -1,68 +1,169 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Blanja E-Commerce Web App
 
-## Available Scripts
+**[Demo App](http://54.236.49.226/)**
 
-In the project directory, you can run:
+<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
+![GitHub repo size](https://img.shields.io/github/repo-size/dimasdompit/Blanja-Frontend)
+![GitHub contributors](https://img.shields.io/github/contributors/dimasdompit/Blanja-Frontend)
+![GitHub stars](https://img.shields.io/github/stars/dimasdompit/Blanja-Frontend?style=social)
+![GitHub forks](https://img.shields.io/github/forks/dimasdompit/Blanja-Frontend?style=social)
 
-### `yarn start`
+Project name is a Blanja, this project was developing an E-Commerce Web App.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Blanja Web App has an API, please visit the link below
+https://github.com/dimasdompit/Blanja-Backend
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Equipments
+* React JS
+* Redux
+* Yarn
+* Code Editor
+* Terminal
+* Browser
 
-### `yarn test`
+## Features
+* Authentication
+* Search, sort & pagination products
+* Cart Shop
+* Buy products
+* User Profile
+* Products Inventory
+* etc
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
 
-### `yarn build`
+Before you begin, ensure you have met the following requirements:
+<!--- These are just example requirements. Add, duplicate or remove as required --->
+* You have installed the latest version of `Node JS`
+* You have installed the latest version of `NPM / YARN`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing Blanja Web App
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To install Blanja Web App, follow these steps:
+```
+git clone https://github.com/dimasdompit/Blanja-Frontend.git
+cd Blanja-Frontend
+npm / yarn install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+then...
 
-### `yarn eject`
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Documentation
+https://documenter.getpostman.com/view/11068288/TVKBZyVX
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing to Blanja Web App
+<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
+To contribute to Blanja Web App, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Fork this repository.
+2. Create a branch.
+3. Make your changes and commit them
+4. Push to the original branch
+5. Create the pull request.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-## Learn More
+## Contributors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Thanks to the following people who have contributed to this project:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [Dimas Mokodompit](https://github.com/dimasdompit)
 
-### Code Splitting
+## Contact
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+For more information, please contact me at: <dimasdompit@gmail.com>
 
-### Analyzing the Bundle Size
+## License
+<!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+This project uses the following license: [MIT License](https://github.com/dimasdompit/Blanja-Frontend/blob/main/LICENSE).
 
-### Making a Progressive Web App
+## Screen Shot
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### - Register Page
 
-### Advanced Configuration
+![](https://i.imgur.com/r5WBTfG.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### - Login Page
 
-### Deployment
+![](https://i.imgur.com/pePzqZE.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### - Home Page (Banner & Categories Slider)
 
-### `yarn build` fails to minify
+![](https://i.imgur.com/DD25xxo.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### - Home Page (New Products)
+
+![](https://i.imgur.com/cw3yQxQ.png)
+
+#### - Category Page
+
+![](https://i.imgur.com/QPJtKA3.png)
+
+#### - Search Result Page
+
+![](https://i.imgur.com/bFZ3VgS.png)
+
+#### - Product Details Page
+
+![](https://i.imgur.com/GihXLdH.png)
+
+#### - Shopping Cart Page
+
+![](https://i.imgur.com/FDN6cS6.png)
+
+#### - Checkout Page
+
+![](https://i.imgur.com/PSjnDl5.png)
+
+#### - Checkout Page (Modal Choose Address)
+
+![](https://i.imgur.com/wDYYs3k.png)
+
+#### - Checkout Page (Modal Payment)
+
+![](https://i.imgur.com/7SqNUCK.png)
+
+#### - Checkout Page (Alert Success)
+
+![](https://i.imgur.com/eafn2Wc.png)
+
+#### - Profile Page (My Account)
+##### Customer :
+
+![](https://i.imgur.com/yjRk4HD.png)
+
+##### Seller :
+![](https://i.imgur.com/9FQW7sm.png)
+
+
+#### - Profile page (Shipping Address - Customer)
+
+![](https://i.imgur.com/DqqkcXv.png)
+
+#### - Profile Page (My Order)
+
+![](https://i.imgur.com/Y2ZBkVK.png)
+
+#### - Profile Page (Order Details)
+
+![](https://i.imgur.com/8qVKceO.png)
+
+#### - Profile Page (My Products - Seller)
+
+![](https://i.imgur.com/uLwgvOr.png)
+
+#### - Profile Page (Selling Products 1 - Seller)
+
+![](https://i.imgur.com/uZnq4mY.png)
+
+#### - Profile Page (Selling Products 2 - Seller)
+
+![](https://i.imgur.com/dWOVDIc.png)
+
+#### - Profile Page (Selling Products 3 - Seller)
+
+![](https://i.imgur.com/taTG2cb.png)
+
