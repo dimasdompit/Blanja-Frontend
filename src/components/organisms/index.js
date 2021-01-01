@@ -11,5 +11,7 @@ import Sidebar from './Sidebar'
 import SidebarItems from './SidebarItems'
 import NewProducts from './NewProducts'
 import PopularProducts from './PopularProducts'
+import ModalFormAddress from './ModalFormAddress'
+import SortProducts from './SortProducts'
 
-export { NavBar, Banner, Carousel, Brand, ProductInformation, ChooseAddress, SignTabs, AccordionSection, Accordion, Sidebar, SidebarItems, NewProducts, PopularProducts }
+export { NavBar, Banner, Carousel, Brand, ProductInformation, ChooseAddress, SignTabs, AccordionSection, Accordion, Sidebar, SidebarItems, NewProducts, PopularProducts, ModalFormAddress, SortProducts }

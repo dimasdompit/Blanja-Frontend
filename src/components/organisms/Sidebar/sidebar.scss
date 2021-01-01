@@ -2,20 +2,47 @@
     background-color: #fff;
     height: 100vh;
     font-family: MetropolisRegular;
+    margin-top: 150px;
+    padding: 0 50px;
+
+    .sidebar__users {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+
+        .sidebar__user__image {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+    }
 
     .sidebar__link__style {
         color: #9b9b9b;
         text-decoration: none;
 
         .sidebar__items {
-            padding: 16px 24px;
+            white-space: nowrap;
             transition: all .25s ease-in-out;
-            // margin: 4px 12px;
             border-radius: 4px;
+
+            .icon__items {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 32px;
+                width: 32px;
+                border-radius: 100%;
+                margin-right: 14px;
+            }
     
             p {
                 font-weight: normal;
                 text-decoration: none;
+                // padding: 8px 10px;
             }
     
             &:hover {

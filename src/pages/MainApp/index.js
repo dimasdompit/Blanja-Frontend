@@ -10,26 +10,32 @@ import Checkout from '../Checkout'
 import Profile from '../Profile'
 import './mainApp.scss'
 
-const MainApp = () => {
+// Redux
+import { connect } from 'react-redux';
+
+const MainApp = (props) => {
     return (
         <div className='main-app-wrapper'>
             <NavBar />
             <div className="content-wrapper">
-                {/* <Container> */}
                 <Router>
                     <Switch>
-                        <Route path='/profile' component={Profile} />
+                        <Route path={'/profile'} component={Profile} />
                         <Route path='/checkout' component={Checkout} />
                         <Route path='/cart' component={MyBag} />
                         <Route path='/category/:id' component={Category} />
                         <Route path='/product-details/:id' component={ProductDetails} />
-                        <Route path='/' component={Home} />
+                        <Route exact path='/' component={Home} />
                     </Switch>
                 </Router>
-                {/* </Container> */}
             </div>
         </div>
     )
 }
 
-export default MainApp
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    products: state.products,
+})
+
+export default connect(mapStateToProps)(MainApp)

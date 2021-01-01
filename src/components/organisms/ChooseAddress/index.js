@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 import { Gap, Headline, Subtext } from '../../atoms'
 import './chooseAddress.scss'
 
-const ChooseAddress = (props) => {
+// Redux
+
+const ChooseAddress = ({ show, onHide, parentCallback, data, ...props }) => {
+    const [showForm, setShowForm] = useState(false)
+
     return (
         <Modal
-            {...props}
+            show={show}
+            onHide={onHide}
             size="lg"
             centered
         >
@@ -15,19 +21,21 @@ const ChooseAddress = (props) => {
             <Modal.Body>
                 <div className='container__modal'>
                     <h3 className='headline__modal'>Choose another address</h3>
-                    <button className='btn__newAddress' onClick={() => console.log('ok')}>
+                    {/* <button className='btn__newAddress' onClick={() => setShowForm(true)}>
                         Add new address
-                    </button>
-                    {props.data.map((address) => {
+                    </button> */}
+                    <Gap height={20} />
+                    {data.map((address) => {
                         return (
-                            <div key={address.id} className='address__wrapper' onClick={() => alert(`Address ID = ${address.id}`)}>
+                            <div key={address.id} className='address__wrapper' onClick={(e) => {
+                                parentCallback(address.id)
+                            }}>
                                 <Headline type='subheads' title={`${address.name} | ${address.type}`} />
                                 <Gap height={10} />
                                 <Subtext size={14} title={`Phone Number: ${address.telp}`} />
                                 <Gap height={10} />
                                 <Subtext size={14} title={`${address.address}, ${address.city}, ${address.province}, ${address.zipcode} - ${address.country}`} />
-                                <Gap height={20} />
-                                <h6 className='btn__change__address' onClick={() => alert(`Change Address ID = ${address.id}`)}>Change Address</h6>
+                                {/* <h6 className='btn__change__address' onClick={() => alert(`Change Address ID = ${address.id}`)}>Change Address</h6> */}
                             </div>
                         )
                     })}
@@ -37,4 +45,4 @@ const ChooseAddress = (props) => {
     )
 }
 
-export default ChooseAddress
+export default withRouter(ChooseAddress)

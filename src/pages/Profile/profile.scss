@@ -1,5 +1,5 @@
 .profile__wrapper {
-    // display: flex;
+    display: flex;
     // flex-direction: column;
     // height: 100vh;
     // padding: 40px 0;
@@ -11,13 +11,14 @@
     
     .profile__left__section {
         box-sizing: border-box;
-        padding: 220px 70px 0 170px;
         position: sticky;
         height: 100%;
         background-color: #fff;
+        // padding-top: 120px;
     }
 
     .profile__right__section {
+        position: relative;
         background-color: #F5F5F5;
     }
 }

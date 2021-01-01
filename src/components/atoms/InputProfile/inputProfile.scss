@@ -1,0 +1,23 @@
+.input__profile__wrapper {
+    display: flex;
+    align-items: center;
+
+    label {
+        font-size: 14px;
+        font-family: MetropolisRegular;
+        color: #9B9B9B;
+        margin-right: 40px;
+        white-space: nowrap;
+        width: 30%;
+        text-align: right;
+    }
+        
+    input {
+        width: 100%;
+        border: 1px solid #9B9B9B;
+        border-radius: 0.2em;
+        padding: 12px 18px;
+        font-size: 14px;
+        font-family: MetropolisRegular;
+    }
+}

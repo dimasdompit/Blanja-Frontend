@@ -21,6 +21,7 @@ const Paginations = (props) => {
     useEffect(() => {
         props.queryParams(currentPage)
     }, [activePage])
+
     return (
         <>
             <div className='product__button'>

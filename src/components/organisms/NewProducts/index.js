@@ -64,7 +64,11 @@ class NewProducts extends Component {
                         )
                     })}
                 </div>
-                <Paginations page={this.getParams().get('page')} queryParams={this.handleParams} />
+                {/* {
+                    this.state.products.length >= 10
+                        ? <Paginations page={this.getParams().get('page')} queryParams={this.handleParams} />
+                        : null
+                } */}
             </>
         )
     }

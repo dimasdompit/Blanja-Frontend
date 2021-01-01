@@ -10,5 +10,6 @@ import Checkbox from './Checkbox'
 import RadioButton from './RadioButton'
 import Input from './Input'
 import IconProfile from './IconProfile'
+import InputProfile from './InputProfile'
 
-export { Search, Gap, Icon, Button, Headline, Subtext, Color, CircleButton, Checkbox, RadioButton, Input, IconProfile }
+export { Search, Gap, Icon, Button, Headline, Subtext, Color, CircleButton, Checkbox, RadioButton, Input, IconProfile, InputProfile }

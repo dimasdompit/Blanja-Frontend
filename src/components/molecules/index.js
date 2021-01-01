@@ -11,5 +11,7 @@ import PopoverNotification from './PopoverNotification'
 import EmptyCategories from './EmptyCategories'
 import PopoverUsers from './PopoverUsers'
 import Paginations from './Paginations'
+import ProfilePicture from './ProfilePicture'
+import ImageUpload from './ImageUpload'
 
-export { Filter, Cart, Cards, Breadcrumbs, ProductDetailsImage, Ratings, CartIcon, CardLoader, SignTab, PopoverNotification, EmptyCategories, PopoverUsers, Paginations }
+export { Filter, Cart, Cards, Breadcrumbs, ProductDetailsImage, Ratings, CartIcon, CardLoader, SignTab, PopoverNotification, EmptyCategories, PopoverUsers, Paginations, ProfilePicture, ImageUpload }

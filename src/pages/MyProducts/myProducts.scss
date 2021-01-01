@@ -1,0 +1,63 @@
+.myProducts__wrapper {
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    padding: 1.8em;
+    background-color: #fff;
+    margin-top: 100px;
+
+    table.myProducts__table {
+        text-align: center;
+        border-radius: 20px;
+        
+        th {
+            background-color: #DB3022;
+            color: #FFF;
+            font-family: MetropolisRegular;
+            font-size: 14px;
+        }
+
+        td {
+            font-family: MetropolisRegular;
+            font-size: 14px;
+
+            .button__product {
+                cursor: pointer;
+                margin: 0;
+                display: flex;
+                border: none;
+                padding: 4px;
+                flex-direction: 'row';
+                border-radius: 4px;
+                transition: .3s ease;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    padding: 0 0 0 5px;
+                    margin: 0;
+                }
+            }
+
+            .button__product.edit {
+                background-color: orange;
+
+                &:hover {
+                    background-color: rgb(208, 135, 0);
+                }
+            }
+
+            .button__product.delete {
+                background-color: #d50000;
+                color: #FFF;
+
+                &:hover {
+                    background-color: #b80000;
+                }
+            }
+        }
+
+        tr:nth-child(even) {
+            background-color: #F7F7F7;
+        }
+    }
+}

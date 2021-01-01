@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { Navbar, Container } from 'react-bootstrap';
@@ -9,40 +10,56 @@ import { useQueryState } from 'react-router-use-location-state';
 
 // Redux
 import { connect } from 'react-redux';
+import { getAllProducts } from '../../../config/Redux/actions/products'
+import { getUserById } from '../../../config/Redux/actions/profile'
 import { logout } from '../../../config/Redux/actions/auth'
 import './NavBar.scss'
 
 const NavBar = (props) => {
+    // Initializiation if user isLoggedIn
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [search, setSearch] = useQueryState('q', '')
-    const [user, setUser] = useState({})
-    const [cartNotif] = useState(localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [])
+    // Initialization search using useQueryState
+    const [search, setSearch] = useQueryState('search', '')
+    // Init user data
+    const [user, setUser] = useState(props.profile.dataProfile)
 
     let history = useHistory()
 
+    /* ================ Handle Logout function ================ */
     const handleLogout = () => {
         props.logout();
         window.location.reload();
     }
 
+    /* ================ Handle Search ================ */
     const handleSearch = (e) => {
-        e.preventDefault();
+        // If user click Enter
         if (e.key === 'Enter') {
             setSearch(e.target.value);
+            // handleParams(search)
+            props.history.push(`/search?search=${e.target.value}`)
+            window.location.reload()
+        }
+    }
+
+    const getUserFromAPI = async () => {
+        const token = props.auth.data.token;
+        try {
+            const response = await props.getUserById(token)
+            const newData = response.value.data.data;
+            setUser(newData)
+        } catch (error) {
+            console.log(error.response)
         }
     }
 
     useEffect(() => {
-        setUser(props.auth.data)
+        getUserFromAPI()
         setIsLoggedIn(props.auth.isLoggedIn)
     }, [])
 
-    useEffect(() => {
-        props.data(search)
-    }, [search])
-
     return (
-        <Navbar bg="white" expand="lg" className='navbar__container'>
+        <Navbar bg="white" expand="lg" className='navbar__container' fixed='top'>
             <Container>
                 <Navbar.Brand className='brand__logo' href='/'><img src={BlanjaLogo} alt="Blanja-Logo" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -55,9 +72,9 @@ const NavBar = (props) => {
                     <Filter />
                     <div className="cart__area">
                         <Gap width={100} />
-                        <CartIcon data={cartNotif.length} onClick={() => window.location.assign('/cart')} />
+                        <CartIcon data={props.cart !== undefined ? props.cart.cartItems.length : null} onClick={() => window.location.assign('/cart')} />
                         <Gap width={35} />
-                        {isLoggedIn !== true || user.image === undefined ? (
+                        {isLoggedIn !== true ? (
                             <>
                                 <Button variant='primary-round' title='Login' onClick={() => history.push('/login')} />
                                 <Gap width={20} />
@@ -80,9 +97,12 @@ const NavBar = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    products: state.products,
+    profile: state.profile,
+    cart: state.cart
 })
 
-const mapDispatchToProps = { logout }
+const mapDispatchToProps = { getAllProducts, getUserById, logout }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))

@@ -25,6 +25,21 @@ export const login = (data) => {
     }
 }
 
+// export const editProfile = (token, data) => {
+//     return {
+//         type: 'EDIT_PROFILE',
+//         payload: axios({
+//             method: 'PUT',
+//             url: `${process.env.REACT_APP_API_URL}/api/v1/profile`,
+//             data: data,
+//             headers: {
+//                 Authorization: token,
+//                 "Content-Type": "multipart/form-data"
+//             }
+//         }),
+//     };
+// };
+
 export const forgotPassword = (data) => {
     return {
         type: 'FORGOT_PASSWORD',

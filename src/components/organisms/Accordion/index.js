@@ -39,8 +39,9 @@ class index extends Component {
 
         return (
             <div>
-                {children.map(child => (
+                {children.map((child, index) => (
                     <AccordionSection
+                        key={index}
                         isOpen={!!openSections[child.props.label]}
                         label={child.props.label}
                         onClick={onClick}

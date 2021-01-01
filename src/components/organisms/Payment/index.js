@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 import { Button, Gap, Headline, RadioButton, Subtext } from '../../atoms'
 import { GopayLogo, PosIndonesiaLogo, MastercardLogo } from '../../../assets'
 import './payment.scss'
 import { formatCurrency } from '../../../utils'
 
-const Payment = (props) => {
+// Redux
+import { connect } from 'react-redux'
+// import {} from '../../../config/Redux/actions/'
+
+const Payment = ({ show, onHide, cart, handleOrder, items, delivery, ...props }) => {
 
     const [payMethod] = useState([
         {
@@ -27,7 +32,8 @@ const Payment = (props) => {
 
     return (
         <Modal
-            {...props}
+            show={show}
+            onHide={onHide}
             size="md"
             centered
         >
@@ -57,12 +63,12 @@ const Payment = (props) => {
                     <Gap height={20} />
                     <div className='order__price'>
                         <Subtext size={16} title='Order' />
-                        <Headline type='h3' title={formatCurrency(props.items.reduce((acc, curr) => acc + curr.price * curr.qty, 0))} />
+                        <Headline type='h3' title={formatCurrency(items.reduce((acc, curr) => acc + curr.price * curr.qty, 0))} />
                     </div>
                     <Gap height={14} />
                     <div className='order__price'>
                         <Subtext size={16} title='Delivery' />
-                        <Headline type='h3' title={formatCurrency(props.delivery)} />
+                        <Headline type='h3' title={formatCurrency(delivery)} />
                     </div>
                 </div>
 
@@ -72,13 +78,19 @@ const Payment = (props) => {
                     <div className='summary__total__price'>
                         <Headline type='subheads' title='Shopping summary' />
                         <Gap height={8} />
-                        <Headline type='h3' style={{ color: '#db3022' }} title={formatCurrency(props.items.reduce((acc, curr) => acc + (curr.price * curr.qty), props.delivery))} />
+                        <Headline type='h3' style={{ color: '#db3022' }} title={formatCurrency(items.reduce((acc, curr) => acc + (curr.price * curr.qty), delivery))} />
                     </div>
-                    <Button variant='primary-round' title='Buy' onClick={props.handleOrder} style={{ flex: 1 }} padding={8} />
+                    <Button variant='primary-round' title='Buy' onClick={handleOrder} style={{ flex: 1 }} padding={8} />
                 </div>
             </Modal.Body>
         </Modal>
     )
 }
 
-export default Payment;
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    cart: state.cart,
+    profile: state.profile
+})
+
+export default connect(mapStateToProps)(withRouter(Payment));

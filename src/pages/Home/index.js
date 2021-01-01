@@ -48,7 +48,6 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        // this.getAllProductsFromAPI();
         this.handleParams();
     }
 
@@ -86,7 +85,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    products: state.products
+    products: state.products,
 })
 
 const mapDispatchToProps = { getAllProducts }

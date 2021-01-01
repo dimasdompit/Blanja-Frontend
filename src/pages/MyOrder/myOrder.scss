@@ -1,0 +1,27 @@
+.myOrder__wrapper {
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    padding: 1.8em;
+    background-color: #fff;
+    margin-top: 100px;
+
+    table {
+        text-align: center;
+
+        th {
+            background-color: #DB3022;
+            color: #fff;
+            font-family: MetropolisBold;
+            font-size: 14px;
+        }
+
+        td {
+            font-family: MetropolisRegular;
+            font-size: 14px;
+
+            .link__details {
+                color: #DB3022;
+            }
+        }
+    }
+}

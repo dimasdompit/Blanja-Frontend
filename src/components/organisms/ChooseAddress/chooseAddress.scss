@@ -20,12 +20,19 @@
         border: none;
         border: 2px dashed #9b9b9b;
         transition: .3s;
-    }
 
-    .btn__newAddress:hover {
-        background-color: #db3022;
-        border-color: #fff;
-        color: #fff;
+        &:hover {
+            background-color: #db3022;
+            border-color: #fff;
+            color: #fff;
+        }
+
+        &:disabled, &[disabled] {
+            border: 2px dashed #9B9B9B;
+            background-color: #dfdfdf;
+            color: #9b9b9b;
+            // cursor: not-allowed;
+          }
     }
 
     .address__wrapper {

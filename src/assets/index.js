@@ -46,8 +46,11 @@ import EmptyCategoriesBg from './illustrations/empty-product-illustration.png';
 import HomeIcon from './icons/home-icon.png';
 import PackageIcon from './icons/package-icon.png';
 import ShoppingCartIcon from './icons/shopping-cart-icon.png';
+import UserIcon from './icons/user-icon.png';
+import OrderIcon from './icons/order-icon.png';
+import ShippingIcon from './icons/shipping-icon.png';
 
 // DUMMY DATA JSON
 import data from './dummy/data.json'
 
-export { BlanjaLogo, Banner1, Banner2, Banner3, Banner4, TshirtImg, ShortsImg, JacketImg, PantsImg, ShoesImg, HighHeelsImg, WirstwatchImg, HandbagImg, BagbackImg, SocksImg, GlassesImg, CapImg, TieImg, DressImg, FormalSuitImg, AccessoriesImg, AdidasImg, CkImg, LenshinImg, NyImg, ZaraImg, EmptyCartBg, GopayLogo, MastercardLogo, PosIndonesiaLogo, Notify, HomeIcon, PackageIcon, ShoppingCartIcon, EmptyCategoriesBg, data };
+export { BlanjaLogo, Banner1, Banner2, Banner3, Banner4, TshirtImg, ShortsImg, JacketImg, PantsImg, ShoesImg, HighHeelsImg, WirstwatchImg, HandbagImg, BagbackImg, SocksImg, GlassesImg, CapImg, TieImg, DressImg, FormalSuitImg, AccessoriesImg, AdidasImg, CkImg, LenshinImg, NyImg, ZaraImg, EmptyCartBg, GopayLogo, MastercardLogo, PosIndonesiaLogo, Notify, HomeIcon, PackageIcon, ShoppingCartIcon, EmptyCategoriesBg, UserIcon, OrderIcon, ShippingIcon, data };

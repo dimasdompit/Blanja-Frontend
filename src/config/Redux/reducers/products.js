@@ -3,6 +3,7 @@ const initialState = {
     isError: false,
     errorMsg: '',
     data: {},
+    detailData: {},
     pagination: {}
 }
 
@@ -103,7 +104,7 @@ const products = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                data: action.payload.data.data,
+                detailData: action.payload.data.data,
             }
 
         default:

@@ -1,0 +1,21 @@
+.myaccount__wrapper {
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    padding: 1.8em;
+    background-color: #fff;
+    margin-top: 100px;
+
+    .myaccount__content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .profile__image__wrapper {
+        border-left: 1px solid #9B9B9B;
+        padding-left: 50px;
+        margin-left: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+}

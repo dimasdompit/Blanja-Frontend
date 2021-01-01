@@ -30,12 +30,15 @@ export const getProductsByCategories = (id) => {
 }
 
 // GET PRODUCTS BY USER ID
-export const getProductsByUserId = (id) => {
+export const getProductsByUserId = (token, id) => {
     return {
         type: 'GET_PRODUCTS_BY_USER_ID',
         payload: axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_API_URL}/api/v1/products/seller/${id}`
+            url: `${process.env.REACT_APP_API_URL}/api/v1/products/seller/${id}`,
+            headers: {
+                Authorization: token,
+            }
         })
     }
 }

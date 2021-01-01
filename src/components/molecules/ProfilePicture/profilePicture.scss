@@ -1,0 +1,39 @@
+.profilePict__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .profilePict__image {
+        width: 165px;
+        height: 165px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .upload-btn-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      
+      .btn {
+        font-family: MetropolisRegular;
+        border: 1px solid #9B9B9B;
+        color: gray;
+        background-color: white;
+        padding: 8px 26px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      
+      .upload-btn-wrapper input[type=file] {
+        cursor: pointer;
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+}
