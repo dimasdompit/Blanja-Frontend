@@ -6,7 +6,7 @@ import './myOrder.scss'
 // Redux
 import { connect } from 'react-redux'
 import { getMyTransactions } from '../../config/Redux/actions/transactions'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { formatCurrency, formatDate } from '../../utils'
 import { Link } from 'react-router-dom'
 

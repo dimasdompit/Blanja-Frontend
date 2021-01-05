@@ -87,14 +87,23 @@ class Checkout extends Component {
                 this.props.history.push('/')
             }, 3000);
         } catch (error) {
-            console.log(error)
+            console.log(error.response)
             const errorMsg = error.response.data.message;
-            swal({
-                icon: 'error',
-                title: `${errorMsg}`,
-                button: true,
-                dangerMode: true
-            })
+            if (errorMsg === 'shipping_address must be a number') {
+                swal({
+                    icon: 'error',
+                    title: 'Please choose an address!',
+                    button: true,
+                    dangerMode: true
+                })
+            } else {
+                swal({
+                    icon: 'error',
+                    title: `${errorMsg}`,
+                    button: true,
+                    dangerMode: true
+                })
+            }
         }
     }
 
@@ -102,6 +111,9 @@ class Checkout extends Component {
         this.getMyAddressFromAPI()
         if (this.state.addressId !== null) {
             this.getAddressDetailsFromAPI()
+        }
+        if (!this.props.auth.isLoggedIn) {
+            window.location.assign('/login')
         }
     }
 

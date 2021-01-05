@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { getDetailMyAddress, addMyAddress, getMyAddress, editMyAddress } from '../../../config/Redux/actions/profile'
 
 const ModalFormAddress = ({ show, onCancel, updateState, addressIdState, onHide, auth, profile, getDetailMyAddress, addMyAddress, getMyAddress, ...props }) => {
-    const [addressId, setAddressId] = useState(null)
+    // const [addressId, setAddressId] = useState(null)
     // const [isUpdate, setIsUpdate] = useState(false)
     const [type, setType] = useState('')
     const [name, setName] = useState('')

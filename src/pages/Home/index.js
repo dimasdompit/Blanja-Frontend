@@ -49,6 +49,9 @@ class Home extends Component {
 
     componentDidMount() {
         this.handleParams();
+        if (this.props.location.search !== '') {
+            this.props.history.push('/')
+        }
     }
 
     render() {
